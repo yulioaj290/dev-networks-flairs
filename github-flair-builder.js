@@ -41,18 +41,20 @@
         flair = $('[data-flair="github"]');
 
         if (flair.length) {
-            var username = getInput();
-            profile = {};
-            getProfile(tmpData);   //--------------------TMP
-            setProperties();       //--------------------TMP
-            // if (!username) {
-            //     c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a username of GitHub.");
-            // } else {
-            //     getUser(username).then(function (data) {
-            //         getProfile(data);
-            //         setProperties();
-            //     });
-            // }
+            loadTheme(function () {
+                var username = getInput();
+                profile = {};
+                getProfile(tmpData);   //--------------------TMP
+                setProperties();       //--------------------TMP
+                // if (!username) {
+                //     c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a username of GitHub.");
+                // } else {
+                //     getUser(username).then(function (data) {
+                //         getProfile(data);
+                //         setProperties();
+                //     });
+                // }
+            });
         }
     }
 
@@ -93,7 +95,7 @@
         for (var property in profile) {
             if (profile.hasOwnProperty(property)) {
                 flair.find('[data-property="' + property + '"]').each(function () {
-                    $(this).text(profile[property])
+                    $(this).text(profile[property]);
                 });
                 setLink(property, profile[property]);
             }
@@ -119,6 +121,16 @@
                 $(this).text(value);
             }
         });
+    }
+
+    function loadTheme(afterLoad) {
+        var theme = flair.data("theme");
+
+        if (theme !== undefined && theme !== false && theme !== '') {
+            flair.load(flair.data("theme"), afterLoad);
+        } else {
+            afterLoad();
+        }
     }
 
     window.onload = start;
