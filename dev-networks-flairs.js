@@ -98,8 +98,6 @@
                 afterSetTheme($(this), network, userid);
                 // }
 
-                profile = {};
-
             });
         }
     }
@@ -116,14 +114,14 @@
         //--------------------TMP
 
 
-        // if (!userid) {
-        //     c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a user id of " + network + ".");
-        // } else {
-        //     getUser(network, userid).then(function (data) {
-        //         getProfile(network, data);
-        //         setProperties(flairItem);
-        //     });
-        // }
+        if (!userid) {
+            c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a user id of " + network + ".");
+        } else {
+            getUser(network, userid).then(function (data) {
+                getProfile(network, data);
+                setProperties(flairItem);
+            });
+        }
     }
 
     function getInput(node) {
@@ -150,6 +148,8 @@
     }
 
     function getProfile(network, userData) {
+        profile = {};
+
         if (network === "github") {
             getProfileGithub(userData);
         } else if (network === "stackoverflow") {
