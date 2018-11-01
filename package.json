@@ -1,0 +1,24 @@
+{
+  "name": "dev-networks-flairs",
+  "version": "1.0.0",
+  "description": "Developer networks flair generator that consume networks APIs.",
+  "main": "dev-networks-flairs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yulioaj290/dev-networks-flairs.git"
+  },
+  "keywords": [
+    "developer networks",
+    "flairs",
+    "javascript"
+  ],
+  "author": "yulioaj290",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yulioaj290/dev-networks-flairs/issues"
+  },
+  "homepage": "https://github.com/yulioaj290/dev-networks-flairs#readme"
+}

@@ -1,0 +1,760 @@
+/* General styles */
+.bold {
+  font-weight: bold;
+}
+
+.network-flair {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  position: relative;
+  overflow: hidden;
+}
+.network-flair .corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.network-flair .image::before {
+  content: "";
+  position: absolute;
+}
+.network-flair .image img {
+  z-index: 10;
+}
+.network-flair .image.circle::before {
+  border-radius: 50%;
+}
+.network-flair .image.circle img {
+  border-radius: 50%;
+}
+.network-flair .info {
+  min-width: 0;
+}
+.network-flair .info p.data {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Flair styles */
+.network-flair.flair, .network-flair.flair .image, .network-flair.cards, .network-flair.cards .image {
+  display: flex;
+  align-items: center;
+}
+
+.network-flair.flair {
+  width: 100%;
+  height: 110px;
+}
+.network-flair.flair .image {
+  width: 70px;
+  height: 70px;
+  margin: 0 20px;
+  flex-shrink: 0;
+}
+.network-flair.flair .image::before {
+  left: 17px;
+  width: 76px;
+  height: 76px;
+}
+.network-flair.flair .image img {
+  width: 100%;
+  height: 100%;
+}
+.network-flair.flair .info {
+  flex-grow: 1;
+  text-align: right;
+  padding: 13px 30px 15px 0;
+}
+.network-flair.cards {
+  width: 100%;
+  flex-direction: column;
+}
+.network-flair.cards .image {
+  width: 100%;
+  height: 120px;
+  position: relative;
+}
+.network-flair.cards .image::before {
+  width: 146px;
+  height: 146px;
+  left: calc(50% - (146px / 2));
+  top: 47px;
+}
+.network-flair.cards .image img {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  left: calc(50% - (140px / 2));
+  top: 50px;
+}
+.network-flair.cards .info {
+  width: 100%;
+  text-align: center;
+  padding: 105px 0 40px 0;
+}
+
+/* Colored themes */
+.network-flair.red.flair .corner > svg, .network-flair.red.cards .corner > svg, .network-flair.pink.flair .corner > svg, .network-flair.pink.cards .corner > svg, .network-flair.purple.flair .corner > svg, .network-flair.purple.cards .corner > svg, .network-flair.deepPurple.flair .corner > svg, .network-flair.deepPurple.cards .corner > svg, .network-flair.indigo.flair .corner > svg, .network-flair.indigo.cards .corner > svg, .network-flair.blue.flair .corner > svg, .network-flair.blue.cards .corner > svg, .network-flair.lightBlue.flair .corner > svg, .network-flair.lightBlue.cards .corner > svg, .network-flair.cyan.flair .corner > svg, .network-flair.cyan.cards .corner > svg, .network-flair.teal.flair .corner > svg, .network-flair.teal.cards .corner > svg, .network-flair.green.flair .corner > svg, .network-flair.green.cards .corner > svg, .network-flair.lightGreen.flair .corner > svg, .network-flair.lightGreen.cards .corner > svg, .network-flair.lime.flair .corner > svg, .network-flair.lime.cards .corner > svg, .network-flair.yellow.flair .corner > svg, .network-flair.yellow.cards .corner > svg, .network-flair.amber.flair .corner > svg, .network-flair.amber.cards .corner > svg, .network-flair.orange.flair .corner > svg, .network-flair.orange.cards .corner > svg, .network-flair.deepOrange.flair .corner > svg, .network-flair.deepOrange.cards .corner > svg, .network-flair.brown.flair .corner > svg, .network-flair.brown.cards .corner > svg, .network-flair.grey.flair .corner > svg, .network-flair.grey.cards .corner > svg, .network-flair.blueGrey.flair .corner > svg, .network-flair.blueGrey.cards .corner > svg, .network-flair.black.flair .corner > svg, .network-flair.black.cards .corner > svg, .network-flair.white.flair .corner > svg, .network-flair.white.cards .corner > svg {
+  border: 0;
+}
+
+.network-flair.red a, .network-flair.red a:hover, .network-flair.red a:active, .network-flair.red a:visited, .network-flair.pink a, .network-flair.pink a:hover, .network-flair.pink a:active, .network-flair.pink a:visited, .network-flair.purple a, .network-flair.purple a:hover, .network-flair.purple a:active, .network-flair.purple a:visited, .network-flair.deepPurple a, .network-flair.deepPurple a:hover, .network-flair.deepPurple a:active, .network-flair.deepPurple a:visited, .network-flair.indigo a, .network-flair.indigo a:hover, .network-flair.indigo a:active, .network-flair.indigo a:visited, .network-flair.blue a, .network-flair.blue a:hover, .network-flair.blue a:active, .network-flair.blue a:visited, .network-flair.teal a, .network-flair.teal a:hover, .network-flair.teal a:active, .network-flair.teal a:visited, .network-flair.deepOrange a, .network-flair.deepOrange a:hover, .network-flair.deepOrange a:active, .network-flair.deepOrange a:visited, .network-flair.brown a, .network-flair.brown a:hover, .network-flair.brown a:active, .network-flair.brown a:visited, .network-flair.blueGrey a, .network-flair.blueGrey a:hover, .network-flair.blueGrey a:active, .network-flair.blueGrey a:visited, .network-flair.black a, .network-flair.black a:hover, .network-flair.black a:active, .network-flair.black a:visited, .network-flair.red.flair .info, .network-flair.red.cards .info, .network-flair.red.cards .info a, .network-flair.red.cards .info a:hover, .network-flair.red.cards .info a:active, .network-flair.red.cards .info a:visited, .network-flair.red.cards .corner > svg, .network-flair.pink.flair .info, .network-flair.pink.cards .info, .network-flair.pink.cards .info a, .network-flair.pink.cards .info a:hover, .network-flair.pink.cards .info a:active, .network-flair.pink.cards .info a:visited, .network-flair.pink.cards .corner > svg, .network-flair.purple.flair .info, .network-flair.purple.cards .info, .network-flair.purple.cards .info a, .network-flair.purple.cards .info a:hover, .network-flair.purple.cards .info a:active, .network-flair.purple.cards .info a:visited, .network-flair.purple.cards .corner > svg, .network-flair.deepPurple.flair .info, .network-flair.deepPurple.cards .info, .network-flair.deepPurple.cards .info a, .network-flair.deepPurple.cards .info a:hover, .network-flair.deepPurple.cards .info a:active, .network-flair.deepPurple.cards .info a:visited, .network-flair.deepPurple.cards .corner > svg, .network-flair.indigo.flair .info, .network-flair.indigo.cards .info, .network-flair.indigo.cards .info a, .network-flair.indigo.cards .info a:hover, .network-flair.indigo.cards .info a:active, .network-flair.indigo.cards .info a:visited, .network-flair.indigo.cards .corner > svg, .network-flair.blue.flair .info, .network-flair.blue.cards .info, .network-flair.blue.cards .info a, .network-flair.blue.cards .info a:hover, .network-flair.blue.cards .info a:active, .network-flair.blue.cards .info a:visited, .network-flair.blue.cards .corner > svg, .network-flair.lightBlue.cards .corner > svg, .network-flair.cyan.cards .corner > svg, .network-flair.teal.flair .info, .network-flair.teal.cards .info, .network-flair.teal.cards .info a, .network-flair.teal.cards .info a:hover, .network-flair.teal.cards .info a:active, .network-flair.teal.cards .info a:visited, .network-flair.teal.cards .corner > svg, .network-flair.green.cards .corner > svg, .network-flair.lightGreen.cards .corner > svg, .network-flair.lime.cards .corner > svg, .network-flair.yellow.cards .corner > svg, .network-flair.amber.cards .corner > svg, .network-flair.orange.cards .corner > svg, .network-flair.deepOrange.flair .info, .network-flair.deepOrange.cards .info, .network-flair.deepOrange.cards .info a, .network-flair.deepOrange.cards .info a:hover, .network-flair.deepOrange.cards .info a:active, .network-flair.deepOrange.cards .info a:visited, .network-flair.deepOrange.cards .corner > svg, .network-flair.brown.flair .info, .network-flair.brown.cards .info, .network-flair.brown.cards .info a, .network-flair.brown.cards .info a:hover, .network-flair.brown.cards .info a:active, .network-flair.brown.cards .info a:visited, .network-flair.brown.cards .corner > svg, .network-flair.grey.cards .corner > svg, .network-flair.blueGrey.flair .info, .network-flair.blueGrey.cards .info, .network-flair.blueGrey.cards .info a, .network-flair.blueGrey.cards .info a:hover, .network-flair.blueGrey.cards .info a:active, .network-flair.blueGrey.cards .info a:visited, .network-flair.blueGrey.cards .corner > svg, .network-flair.black.flair .info, .network-flair.black.cards .info, .network-flair.black.cards .info a, .network-flair.black.cards .info a:hover, .network-flair.black.cards .info a:active, .network-flair.black.cards .info a:visited, .network-flair.black.cards .corner > svg, .network-flair.white.cards .corner > svg, button.red, button.pink, button.purple, button.deepPurple, button.indigo, button.blue, button.teal, button.deepOrange, button.brown, button.blueGrey, button.black {
+  color: #ffffff;
+}
+
+.network-flair.lightBlue a, .network-flair.lightBlue a:hover, .network-flair.lightBlue a:active, .network-flair.lightBlue a:visited, .network-flair.cyan a, .network-flair.cyan a:hover, .network-flair.cyan a:active, .network-flair.cyan a:visited, .network-flair.green a, .network-flair.green a:hover, .network-flair.green a:active, .network-flair.green a:visited, .network-flair.lightGreen a, .network-flair.lightGreen a:hover, .network-flair.lightGreen a:active, .network-flair.lightGreen a:visited, .network-flair.lime a, .network-flair.lime a:hover, .network-flair.lime a:active, .network-flair.lime a:visited, .network-flair.yellow a, .network-flair.yellow a:hover, .network-flair.yellow a:active, .network-flair.yellow a:visited, .network-flair.amber a, .network-flair.amber a:hover, .network-flair.amber a:active, .network-flair.amber a:visited, .network-flair.orange a, .network-flair.orange a:hover, .network-flair.orange a:active, .network-flair.orange a:visited, .network-flair.grey a, .network-flair.grey a:hover, .network-flair.grey a:active, .network-flair.grey a:visited, .network-flair.white a, .network-flair.white a:hover, .network-flair.white a:active, .network-flair.white a:visited, .network-flair.lightBlue.flair .info, .network-flair.lightBlue.cards .info, .network-flair.lightBlue.cards .info a, .network-flair.lightBlue.cards .info a:hover, .network-flair.lightBlue.cards .info a:active, .network-flair.lightBlue.cards .info a:visited, .network-flair.cyan.flair .info, .network-flair.cyan.cards .info, .network-flair.cyan.cards .info a, .network-flair.cyan.cards .info a:hover, .network-flair.cyan.cards .info a:active, .network-flair.cyan.cards .info a:visited, .network-flair.green.flair .info, .network-flair.green.cards .info, .network-flair.green.cards .info a, .network-flair.green.cards .info a:hover, .network-flair.green.cards .info a:active, .network-flair.green.cards .info a:visited, .network-flair.lightGreen.flair .info, .network-flair.lightGreen.cards .info, .network-flair.lightGreen.cards .info a, .network-flair.lightGreen.cards .info a:hover, .network-flair.lightGreen.cards .info a:active, .network-flair.lightGreen.cards .info a:visited, .network-flair.lime.flair .info, .network-flair.lime.cards .info, .network-flair.lime.cards .info a, .network-flair.lime.cards .info a:hover, .network-flair.lime.cards .info a:active, .network-flair.lime.cards .info a:visited, .network-flair.yellow.flair .info, .network-flair.yellow.cards .info, .network-flair.yellow.cards .info a, .network-flair.yellow.cards .info a:hover, .network-flair.yellow.cards .info a:active, .network-flair.yellow.cards .info a:visited, .network-flair.amber.flair .info, .network-flair.amber.cards .info, .network-flair.amber.cards .info a, .network-flair.amber.cards .info a:hover, .network-flair.amber.cards .info a:active, .network-flair.amber.cards .info a:visited, .network-flair.orange.flair .info, .network-flair.orange.cards .info, .network-flair.orange.cards .info a, .network-flair.orange.cards .info a:hover, .network-flair.orange.cards .info a:active, .network-flair.orange.cards .info a:visited, .network-flair.grey.flair .info, .network-flair.grey.cards .info, .network-flair.grey.cards .info a, .network-flair.grey.cards .info a:hover, .network-flair.grey.cards .info a:active, .network-flair.grey.cards .info a:visited, .network-flair.white.flair .info, .network-flair.white.cards .info, .network-flair.white.cards .info a, .network-flair.white.cards .info a:hover, .network-flair.white.cards .info a:active, .network-flair.white.cards .info a:visited, button.lightBlue, button.cyan, button.green, button.lightGreen, button.lime, button.yellow, button.amber, button.orange, button.grey, button.white {
+  color: #000000;
+}
+
+.network-flair.red a, .network-flair.red a:hover, .network-flair.red a:active, .network-flair.red a:visited, .network-flair.pink a, .network-flair.pink a:hover, .network-flair.pink a:active, .network-flair.pink a:visited, .network-flair.purple a, .network-flair.purple a:hover, .network-flair.purple a:active, .network-flair.purple a:visited, .network-flair.deepPurple a, .network-flair.deepPurple a:hover, .network-flair.deepPurple a:active, .network-flair.deepPurple a:visited, .network-flair.indigo a, .network-flair.indigo a:hover, .network-flair.indigo a:active, .network-flair.indigo a:visited, .network-flair.blue a, .network-flair.blue a:hover, .network-flair.blue a:active, .network-flair.blue a:visited, .network-flair.lightBlue a, .network-flair.lightBlue a:hover, .network-flair.lightBlue a:active, .network-flair.lightBlue a:visited, .network-flair.cyan a, .network-flair.cyan a:hover, .network-flair.cyan a:active, .network-flair.cyan a:visited, .network-flair.teal a, .network-flair.teal a:hover, .network-flair.teal a:active, .network-flair.teal a:visited, .network-flair.green a, .network-flair.green a:hover, .network-flair.green a:active, .network-flair.green a:visited, .network-flair.lightGreen a, .network-flair.lightGreen a:hover, .network-flair.lightGreen a:active, .network-flair.lightGreen a:visited, .network-flair.lime a, .network-flair.lime a:hover, .network-flair.lime a:active, .network-flair.lime a:visited, .network-flair.yellow a, .network-flair.yellow a:hover, .network-flair.yellow a:active, .network-flair.yellow a:visited, .network-flair.amber a, .network-flair.amber a:hover, .network-flair.amber a:active, .network-flair.amber a:visited, .network-flair.orange a, .network-flair.orange a:hover, .network-flair.orange a:active, .network-flair.orange a:visited, .network-flair.deepOrange a, .network-flair.deepOrange a:hover, .network-flair.deepOrange a:active, .network-flair.deepOrange a:visited, .network-flair.brown a, .network-flair.brown a:hover, .network-flair.brown a:active, .network-flair.brown a:visited, .network-flair.grey a, .network-flair.grey a:hover, .network-flair.grey a:active, .network-flair.grey a:visited, .network-flair.blueGrey a, .network-flair.blueGrey a:hover, .network-flair.blueGrey a:active, .network-flair.blueGrey a:visited, .network-flair.black a, .network-flair.black a:hover, .network-flair.black a:active, .network-flair.black a:visited, .network-flair.white a, .network-flair.white a:hover, .network-flair.white a:active, .network-flair.white a:visited {
+  text-decoration: underline;
+}
+
+.network-flair.red.flair .info svg, .network-flair.red.flair .corner > svg, .network-flair.red.cards .info svg, .network-flair.pink.flair .info svg, .network-flair.pink.flair .corner > svg, .network-flair.pink.cards .info svg, .network-flair.purple.flair .info svg, .network-flair.purple.flair .corner > svg, .network-flair.purple.cards .info svg, .network-flair.deepPurple.flair .info svg, .network-flair.deepPurple.flair .corner > svg, .network-flair.deepPurple.cards .info svg, .network-flair.indigo.flair .info svg, .network-flair.indigo.flair .corner > svg, .network-flair.indigo.cards .info svg, .network-flair.blue.flair .info svg, .network-flair.blue.flair .corner > svg, .network-flair.blue.cards .info svg, .network-flair.teal.flair .info svg, .network-flair.teal.flair .corner > svg, .network-flair.teal.cards .info svg, .network-flair.deepOrange.flair .info svg, .network-flair.deepOrange.flair .corner > svg, .network-flair.deepOrange.cards .info svg, .network-flair.brown.flair .info svg, .network-flair.brown.flair .corner > svg, .network-flair.brown.cards .info svg, .network-flair.blueGrey.flair .info svg, .network-flair.blueGrey.flair .corner > svg, .network-flair.blueGrey.cards .info svg, .network-flair.black.flair .info svg, .network-flair.black.flair .corner > svg, .network-flair.black.cards .info svg {
+  fill: #ffffff;
+}
+
+.network-flair.lightBlue.flair .info svg, .network-flair.lightBlue.flair .corner > svg, .network-flair.lightBlue.cards .info svg, .network-flair.cyan.flair .info svg, .network-flair.cyan.flair .corner > svg, .network-flair.cyan.cards .info svg, .network-flair.green.flair .info svg, .network-flair.green.flair .corner > svg, .network-flair.green.cards .info svg, .network-flair.lightGreen.flair .info svg, .network-flair.lightGreen.flair .corner > svg, .network-flair.lightGreen.cards .info svg, .network-flair.lime.flair .info svg, .network-flair.lime.flair .corner > svg, .network-flair.lime.cards .info svg, .network-flair.yellow.flair .info svg, .network-flair.yellow.flair .corner > svg, .network-flair.yellow.cards .info svg, .network-flair.amber.flair .info svg, .network-flair.amber.flair .corner > svg, .network-flair.amber.cards .info svg, .network-flair.orange.flair .info svg, .network-flair.orange.flair .corner > svg, .network-flair.orange.cards .info svg, .network-flair.grey.flair .info svg, .network-flair.grey.flair .corner > svg, .network-flair.grey.cards .info svg, .network-flair.white.flair .info svg, .network-flair.white.flair .corner > svg, .network-flair.white.cards .info svg {
+  fill: #000000;
+}
+
+.network-flair {
+  /* Each colored theme */
+  /* White color style */
+}
+.network-flair.red a:hover, .network-flair.pink a:hover, .network-flair.purple a:hover, .network-flair.deepPurple a:hover, .network-flair.indigo a:hover, .network-flair.blue a:hover, .network-flair.lightBlue a:hover, .network-flair.cyan a:hover, .network-flair.teal a:hover, .network-flair.green a:hover, .network-flair.lightGreen a:hover, .network-flair.lime a:hover, .network-flair.yellow a:hover, .network-flair.amber a:hover, .network-flair.orange a:hover, .network-flair.deepOrange a:hover, .network-flair.brown a:hover, .network-flair.grey a:hover, .network-flair.blueGrey a:hover, .network-flair.black a:hover, .network-flair.white a:hover {
+  text-decoration: none;
+}
+.network-flair.cards .image, .network-flair.red .image::before, .network-flair.pink .image::before, .network-flair.purple .image::before, .network-flair.deepPurple .image::before, .network-flair.indigo .image::before, .network-flair.blue .image::before, .network-flair.lightBlue .image::before, .network-flair.cyan .image::before, .network-flair.teal .image::before, .network-flair.green .image::before, .network-flair.lightGreen .image::before, .network-flair.lime .image::before, .network-flair.yellow .image::before, .network-flair.amber .image::before, .network-flair.orange .image::before, .network-flair.deepOrange .image::before, .network-flair.brown .image::before, .network-flair.grey .image::before, .network-flair.blueGrey .image::before, .network-flair.black .image::before, .network-flair.white .image::before {
+  background-color: #ffffff;
+}
+.network-flair.red {
+  border: 1px solid #f44336;
+}
+.network-flair.red .image img {
+  border: 1px solid #f44336;
+}
+.network-flair.red.flair {
+  background-color: #f44336;
+}
+.network-flair.red.flair .corner > svg {
+  color: #f44336;
+}
+.network-flair.red.cards .corner > svg {
+  fill: #f44336;
+}
+.network-flair.red.cards .info {
+  background-color: #f44336;
+}
+.network-flair.pink {
+  border: 1px solid #e91e63;
+}
+.network-flair.pink .image img {
+  border: 1px solid #e91e63;
+}
+.network-flair.pink.flair {
+  background-color: #e91e63;
+}
+.network-flair.pink.flair .corner > svg {
+  color: #e91e63;
+}
+.network-flair.pink.cards .corner > svg {
+  fill: #e91e63;
+}
+.network-flair.pink.cards .info {
+  background-color: #e91e63;
+}
+.network-flair.purple {
+  border: 1px solid #9c27b0;
+}
+.network-flair.purple .image img {
+  border: 1px solid #9c27b0;
+}
+.network-flair.purple.flair {
+  background-color: #9c27b0;
+}
+.network-flair.purple.flair .corner > svg {
+  color: #9c27b0;
+}
+.network-flair.purple.cards .corner > svg {
+  fill: #9c27b0;
+}
+.network-flair.purple.cards .info {
+  background-color: #9c27b0;
+}
+.network-flair.deepPurple {
+  border: 1px solid #673ab7;
+}
+.network-flair.deepPurple .image img {
+  border: 1px solid #673ab7;
+}
+.network-flair.deepPurple.flair {
+  background-color: #673ab7;
+}
+.network-flair.deepPurple.flair .corner > svg {
+  color: #673ab7;
+}
+.network-flair.deepPurple.cards .corner > svg {
+  fill: #673ab7;
+}
+.network-flair.deepPurple.cards .info {
+  background-color: #673ab7;
+}
+.network-flair.indigo {
+  border: 1px solid #3f51b5;
+}
+.network-flair.indigo .image img {
+  border: 1px solid #3f51b5;
+}
+.network-flair.indigo.flair {
+  background-color: #3f51b5;
+}
+.network-flair.indigo.flair .corner > svg {
+  color: #3f51b5;
+}
+.network-flair.indigo.cards .corner > svg {
+  fill: #3f51b5;
+}
+.network-flair.indigo.cards .info {
+  background-color: #3f51b5;
+}
+.network-flair.blue {
+  border: 1px solid #2196f3;
+}
+.network-flair.blue .image img {
+  border: 1px solid #2196f3;
+}
+.network-flair.blue.flair {
+  background-color: #2196f3;
+}
+.network-flair.blue.flair .corner > svg {
+  color: #2196f3;
+}
+.network-flair.blue.cards .corner > svg {
+  fill: #2196f3;
+}
+.network-flair.blue.cards .info {
+  background-color: #2196f3;
+}
+.network-flair.lightBlue {
+  border: 1px solid #03a9f4;
+}
+.network-flair.lightBlue .image img {
+  border: 1px solid #03a9f4;
+}
+.network-flair.lightBlue.flair {
+  background-color: #03a9f4;
+}
+.network-flair.lightBlue.flair .corner > svg {
+  color: #03a9f4;
+}
+.network-flair.lightBlue.cards .corner > svg {
+  fill: #03a9f4;
+}
+.network-flair.lightBlue.cards .info {
+  background-color: #03a9f4;
+}
+.network-flair.cyan {
+  border: 1px solid #00bcd4;
+}
+.network-flair.cyan .image img {
+  border: 1px solid #00bcd4;
+}
+.network-flair.cyan.flair {
+  background-color: #00bcd4;
+}
+.network-flair.cyan.flair .corner > svg {
+  color: #00bcd4;
+}
+.network-flair.cyan.cards .corner > svg {
+  fill: #00bcd4;
+}
+.network-flair.cyan.cards .info {
+  background-color: #00bcd4;
+}
+.network-flair.teal {
+  border: 1px solid #009688;
+}
+.network-flair.teal .image img {
+  border: 1px solid #009688;
+}
+.network-flair.teal.flair {
+  background-color: #009688;
+}
+.network-flair.teal.flair .corner > svg {
+  color: #009688;
+}
+.network-flair.teal.cards .corner > svg {
+  fill: #009688;
+}
+.network-flair.teal.cards .info {
+  background-color: #009688;
+}
+.network-flair.green {
+  border: 1px solid #4caf50;
+}
+.network-flair.green .image img {
+  border: 1px solid #4caf50;
+}
+.network-flair.green.flair {
+  background-color: #4caf50;
+}
+.network-flair.green.flair .corner > svg {
+  color: #4caf50;
+}
+.network-flair.green.cards .corner > svg {
+  fill: #4caf50;
+}
+.network-flair.green.cards .info {
+  background-color: #4caf50;
+}
+.network-flair.lightGreen {
+  border: 1px solid #8bc34a;
+}
+.network-flair.lightGreen .image img {
+  border: 1px solid #8bc34a;
+}
+.network-flair.lightGreen.flair {
+  background-color: #8bc34a;
+}
+.network-flair.lightGreen.flair .corner > svg {
+  color: #8bc34a;
+}
+.network-flair.lightGreen.cards .corner > svg {
+  fill: #8bc34a;
+}
+.network-flair.lightGreen.cards .info {
+  background-color: #8bc34a;
+}
+.network-flair.lime {
+  border: 1px solid #cddc39;
+}
+.network-flair.lime .image img {
+  border: 1px solid #cddc39;
+}
+.network-flair.lime.flair {
+  background-color: #cddc39;
+}
+.network-flair.lime.flair .corner > svg {
+  color: #cddc39;
+}
+.network-flair.lime.cards .corner > svg {
+  fill: #cddc39;
+}
+.network-flair.lime.cards .info {
+  background-color: #cddc39;
+}
+.network-flair.yellow {
+  border: 1px solid #ffeb3b;
+}
+.network-flair.yellow .image img {
+  border: 1px solid #ffeb3b;
+}
+.network-flair.yellow.flair {
+  background-color: #ffeb3b;
+}
+.network-flair.yellow.flair .corner > svg {
+  color: #ffeb3b;
+}
+.network-flair.yellow.cards .corner > svg {
+  fill: #ffeb3b;
+}
+.network-flair.yellow.cards .info {
+  background-color: #ffeb3b;
+}
+.network-flair.amber {
+  border: 1px solid #ffc107;
+}
+.network-flair.amber .image img {
+  border: 1px solid #ffc107;
+}
+.network-flair.amber.flair {
+  background-color: #ffc107;
+}
+.network-flair.amber.flair .corner > svg {
+  color: #ffc107;
+}
+.network-flair.amber.cards .corner > svg {
+  fill: #ffc107;
+}
+.network-flair.amber.cards .info {
+  background-color: #ffc107;
+}
+.network-flair.orange {
+  border: 1px solid #ff9800;
+}
+.network-flair.orange .image img {
+  border: 1px solid #ff9800;
+}
+.network-flair.orange.flair {
+  background-color: #ff9800;
+}
+.network-flair.orange.flair .corner > svg {
+  color: #ff9800;
+}
+.network-flair.orange.cards .corner > svg {
+  fill: #ff9800;
+}
+.network-flair.orange.cards .info {
+  background-color: #ff9800;
+}
+.network-flair.deepOrange {
+  border: 1px solid #ff5722;
+}
+.network-flair.deepOrange .image img {
+  border: 1px solid #ff5722;
+}
+.network-flair.deepOrange.flair {
+  background-color: #ff5722;
+}
+.network-flair.deepOrange.flair .corner > svg {
+  color: #ff5722;
+}
+.network-flair.deepOrange.cards .corner > svg {
+  fill: #ff5722;
+}
+.network-flair.deepOrange.cards .info {
+  background-color: #ff5722;
+}
+.network-flair.brown {
+  border: 1px solid #795548;
+}
+.network-flair.brown .image img {
+  border: 1px solid #795548;
+}
+.network-flair.brown.flair {
+  background-color: #795548;
+}
+.network-flair.brown.flair .corner > svg {
+  color: #795548;
+}
+.network-flair.brown.cards .corner > svg {
+  fill: #795548;
+}
+.network-flair.brown.cards .info {
+  background-color: #795548;
+}
+.network-flair.grey {
+  border: 1px solid #9e9e9e;
+}
+.network-flair.grey .image img {
+  border: 1px solid #9e9e9e;
+}
+.network-flair.grey.flair {
+  background-color: #9e9e9e;
+}
+.network-flair.grey.flair .corner > svg {
+  color: #9e9e9e;
+}
+.network-flair.grey.cards .corner > svg {
+  fill: #9e9e9e;
+}
+.network-flair.grey.cards .info {
+  background-color: #9e9e9e;
+}
+.network-flair.blueGrey {
+  border: 1px solid #607d8b;
+}
+.network-flair.blueGrey .image img {
+  border: 1px solid #607d8b;
+}
+.network-flair.blueGrey.flair {
+  background-color: #607d8b;
+}
+.network-flair.blueGrey.flair .corner > svg {
+  color: #607d8b;
+}
+.network-flair.blueGrey.cards .corner > svg {
+  fill: #607d8b;
+}
+.network-flair.blueGrey.cards .info {
+  background-color: #607d8b;
+}
+.network-flair.black {
+  border: 1px solid #000000;
+}
+.network-flair.black .image img {
+  border: 1px solid #000000;
+}
+.network-flair.black.flair {
+  background-color: #000000;
+}
+.network-flair.black.flair .corner > svg {
+  color: #000000;
+}
+.network-flair.black.cards .corner > svg {
+  fill: #000000;
+}
+.network-flair.black.cards .info {
+  background-color: #000000;
+}
+.network-flair.white {
+  border: 1px solid #ffffff;
+}
+.network-flair.white .image img {
+  border: 1px solid #ffffff;
+}
+.network-flair.white.flair {
+  background-color: #ffffff;
+}
+.network-flair.white.flair .corner > svg {
+  color: #ffffff;
+}
+.network-flair.white.cards .corner > svg {
+  fill: #ffffff;
+}
+.network-flair.white.cards .info {
+  background-color: #ffffff;
+}
+.network-flair.red .image::before {
+  border: 1px solid #ffcdd2;
+}
+.network-flair.pink .image::before {
+  border: 1px solid #f8bbd0;
+}
+.network-flair.purple .image::before {
+  border: 1px solid #e1bee7;
+}
+.network-flair.deepPurple .image::before {
+  border: 1px solid #d1c4e9;
+}
+.network-flair.indigo .image::before {
+  border: 1px solid #c5cae9;
+}
+.network-flair.blue .image::before {
+  border: 1px solid #bbdefb;
+}
+.network-flair.lightBlue .image::before {
+  border: 1px solid #b3e5fc;
+}
+.network-flair.cyan .image::before {
+  border: 1px solid #b2ebf2;
+}
+.network-flair.teal .image::before {
+  border: 1px solid #b2dfdb;
+}
+.network-flair.green .image::before {
+  border: 1px solid #c8e6c9;
+}
+.network-flair.lightGreen .image::before {
+  border: 1px solid #dcedc8;
+}
+.network-flair.lime .image::before {
+  border: 1px solid #f0f4c3;
+}
+.network-flair.yellow .image::before {
+  border: 1px solid #fff9c4;
+}
+.network-flair.amber .image::before {
+  border: 1px solid #ffecb3;
+}
+.network-flair.orange .image::before {
+  border: 1px solid #ffe0b2;
+}
+.network-flair.deepOrange .image::before {
+  border: 1px solid #ffccbc;
+}
+.network-flair.brown .image::before {
+  border: 1px solid #d7ccc8;
+}
+.network-flair.grey .image::before {
+  border: 1px solid #f5f5f5;
+}
+.network-flair.blueGray .image::before {
+  border: 1px solid #cfd8dc;
+}
+.network-flair.black .image::before {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+}
+.network-flair.white .image::before {
+  border: 1px solid rgba(255, 255, 255, 0.26);
+}
+.network-flair.white {
+  border: 1px solid #000000;
+}
+.network-flair.white .image::before {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+}
+.network-flair.white .image img {
+  border: 1px solid #000000;
+}
+.network-flair.white.flair .corner > svg {
+  fill: #151513;
+}
+.network-flair.white.flair .info svg {
+  fill: #000000;
+}
+.network-flair.white.cards .image {
+  background-color: #000000;
+}
+.network-flair.white.cards .corner > svg {
+  fill: #ffffff;
+  color: #151513;
+}
+.network-flair.white.cards .info svg {
+  fill: #000000;
+}
+
+/* Extra styles */
+button.red {
+  background-color: #f44336;
+}
+button.red:hover {
+  background-color: #f99d97;
+}
+
+button.pink {
+  background-color: #e91e63;
+}
+button.pink:hover {
+  background-color: #f27ba3;
+}
+
+button.purple {
+  background-color: #9c27b0;
+}
+button.purple:hover {
+  background-color: #ca61dc;
+}
+
+button.deepPurple {
+  background-color: #673ab7;
+}
+button.deepPurple:hover {
+  background-color: #9f80d7;
+}
+
+button.indigo {
+  background-color: #3f51b5;
+}
+button.indigo:hover {
+  background-color: #8591d5;
+}
+
+button.blue {
+  background-color: #2196f3;
+}
+button.blue:hover {
+  background-color: #82c4f8;
+}
+
+button.lightBlue {
+  background-color: #03a9f4;
+}
+button.lightBlue:hover {
+  background-color: #60ccfd;
+}
+
+button.cyan {
+  background-color: #00bcd4;
+}
+button.cyan:hover {
+  background-color: #3be9ff;
+}
+
+button.teal {
+  background-color: #009688;
+}
+button.teal:hover {
+  background-color: #00fce4;
+}
+
+button.green {
+  background-color: #4caf50;
+}
+button.green:hover {
+  background-color: #92cf94;
+}
+
+button.lightGreen {
+  background-color: #8bc34a;
+}
+button.lightGreen:hover {
+  background-color: #bcdc97;
+}
+
+button.lime {
+  background-color: #cddc39;
+}
+button.lime:hover {
+  background-color: #e3eb90;
+}
+
+button.yellow {
+  background-color: #ffeb3b;
+}
+button.yellow:hover {
+  background-color: #fff5a1;
+}
+
+button.amber {
+  background-color: #ffc107;
+}
+button.amber:hover {
+  background-color: #ffdb6d;
+}
+
+button.orange {
+  background-color: #ff9800;
+}
+button.orange:hover {
+  background-color: #ffc166;
+}
+
+button.deepOrange {
+  background-color: #ff5722;
+}
+button.deepOrange:hover {
+  background-color: #ffa588;
+}
+
+button.brown {
+  background-color: #795548;
+}
+button.brown:hover {
+  background-color: #af8778;
+}
+
+button.grey {
+  background-color: #9e9e9e;
+}
+button.grey:hover {
+  background-color: #d1d1d1;
+}
+
+button.blueGrey {
+  background-color: #607d8b;
+}
+button.blueGrey:hover {
+  background-color: #99aeb8;
+}
+
+button.black {
+  background-color: #000000;
+}
+button.black:hover {
+  background-color: #333333;
+}
+
+button.white {
+  background-color: #ffffff;
+}
+button.white:hover {
+  background-color: white;
+}
+
+button.white {
+  color: #000000;
+  border: 1px solid #000000;
+  background-color: #ffffff;
+}
+
+button.white:hover {
+  color: #000000;
+  border: 1px solid #000000;
+  background-color: #eeeeee;
+}
+
+/*# sourceMappingURL=theme.css.map */

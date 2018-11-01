@@ -1,6 +1,11 @@
 test.html
 test-assets/
+
+# IDE
 .idea/
+.vscode/
+.sass-cache/
+
 # Logs
 logs
 *.log

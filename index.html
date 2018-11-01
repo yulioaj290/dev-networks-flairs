@@ -1,67 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta charset="utf-8">
-    <title>GitHub Flair</title>
-    <meta name="description" content="Generate Awesome GitHub Flairs for Users and Organizations">
-    <meta name="keywords" content="GitHub, Flair">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css">
-    <link rel="stylesheet" href="./page.css">
+    <title>Basic Theme</title>
+
+    <link rel="stylesheet" href="test-assets/bootstrap.min.css">
+    <link rel="stylesheet" href="test-assets/fa/css/all.css">
+    <link rel="stylesheet" href="test-assets/codemirror.css">
+    <link rel="stylesheet" href="test-assets/material.css">
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> -->
+    <!-- <link rel="stylesheet" href="https://codemirror.net/lib/codemirror.css"> -->
+    <!-- <link rel="stylesheet" href="https://codemirror.net/theme/material.css"> -->
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
 </head>
-<body class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center">
-            <h1 style="font-size: 4.5em;font-weight: bold;">GitHub Flair</h1>
+
+<body>
+
+    <div class="theme-icon mb-2">
+        <a class="btn btn-primary" href="#">
+            <i class="fas fa-bars"></i>
+        </a>
+    </div>
+    <div class="theme-colors">
+        <div class="theme-buttons">
+            <button type="button" data-color="black" class="btn btn-sm btn-block black"><span>Black</span></button>
+            <button type="button" data-color="white" class="btn btn-sm btn-block white"><span>White</span></button>
+            <button type="button" data-color="red" class="btn btn-sm btn-block red"><span>Red</span></button>
+            <button type="button" data-color="pink" class="btn btn-sm btn-block pink"><span>Pink.</span></button>
+            <button type="button" data-color="purple" class="btn btn-sm btn-block purple"><span>Purple</span></button>
+            <button type="button" data-color="deepPurple" class="btn btn-sm btn-block deepPurple"><span>Deep Purple</span></button>
+            <button type="button" data-color="indigo" class="btn btn-sm btn-block indigo"><span>Indigo</span></button>
+            <button type="button" data-color="blue" class="btn btn-sm btn-block blue"><span>Blue</span></button>
+            <button type="button" data-color="lightBlue" class="btn btn-sm btn-block lightBlue"><span>Light blue</span></button>
+            <button type="button" data-color="cyan" class="btn btn-sm btn-block cyan"><span>Cyan</span></button>
+            <button type="button" data-color="teal" class="btn btn-sm btn-block teal"><span>Teal</span></button>
+            <button type="button" data-color="green" class="btn btn-sm btn-block green"><span>Green</span></button>
+            <button type="button" data-color="lightGreen" class="btn btn-sm btn-block lightGreen"><span>Light Green</span></button>
+            <button type="button" data-color="lime" class="btn btn-sm btn-block lime"><span>Lime</span></button>
+            <button type="button" data-color="yellow" class="btn btn-sm btn-block yellow"><span>Yellow</span></button>
+            <button type="button" data-color="amber" class="btn btn-sm btn-block amber"><span>Amber</span></button>
+            <button type="button" data-color="orange" class="btn btn-sm btn-block orange"><span>Orange</span></button>
+            <button type="button" data-color="deepOrange" class="btn btn-sm btn-block deepOrange"><span>Deep Orange</span></button>
+            <button type="button" data-color="brown" class="btn btn-sm btn-block brown"><span>Brown</span></button>
+            <button type="button" data-color="grey" class="btn btn-sm btn-block grey"><span>Grey</span></button>
+            <button type="button" data-color="blueGrey" class="btn btn-sm btn-block blueGrey"><span>Blue Grey</span></button>
         </div>
     </div>
-    <br>
-    <div id="user-input" class="row">
-        <div class="col-sm-7 col-sm-offset-2 col-xs-12">
-            <input class="form-control username" placeholder="GitHub Username or Organization ID" type="text">
+
+    <div class="page-content container mt-5">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-3 w-100">Dev Networks Flairs</h1>
+                <div class="row">
+                    <div class="col-lg-5 pr-lg-0 mb-1">
+                        <input type="text" name="user_id" placeholder="GitHub Username" id="user_id" class="form-control"
+                            title="User ID">
+                    </div>
+                    <div class="col-lg-5 mb-1">
+                        <input type="text" name="user_id" placeholder="Stack Overflow User ID" id="user_id" class="form-control"
+                            title="User ID">
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-large btn-block btn-primary">Load Data</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-2 col-xs-12">
-            <button class="btn btn-info generate">Generate</button>
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-sm-7 col-sm-offset-2">
-            <input type="checkbox" checked class="round-avatar"> Round Avatar &nbsp;&nbsp;
-            <input type="checkbox" class="display-rainbow"> Rainbow Avatar &nbsp;&nbsp;
-            <br>
-            <input type="checkbox" checked class="display-website"> Display Blog/Website &nbsp;&nbsp;
-            <input type="checkbox" checked class="display-followers"> Display Followers &nbsp;&nbsp;
-            <input type="checkbox" checked class="display-location"> Display Location &nbsp;&nbsp;
-        </div>
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-xs-12 col-sm-9 col-sm-offset-2 col-md-7 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <ul>
-                        <li>Enter your GitHub username or organization id to generate flairs</li>
-                        <li>GitHub corner logo inspired by <a href="https://github.com/tholman/github-corners">GitHub Corners</a></li>
-                        <li>Theme PRs are welcome! Forks me <a href="https://github.com/markocen/github-flair">here</a></li>
-                        <li>Due to high traffic, this website may reach <a href="https://developer.github.com/v3/#rate-limiting">GitHub unauthorized API rate limit</a>, you could fork this repo and host it on your IP to eliminate the limitation</li>
-                    </ul>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="row">
+                    <div class="col mt-5 border-bottom text-center">
+                        <h2>Samples</h2>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="network-flair flair github indigo" data-color="black" data-flair="github" data-user="yulioaj290"
+                            data-theme="githubFlair">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <div class="network-flair cards github indigo" data-color="black" data-flair="github" data-user="yulioaj290"
+                            data-theme="githubCards">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 mt-5">
+                <div class="rowt ext-center text-center">
+                    <div class="col border-bottom">
+                        <h2>Code</h2>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <textarea name="code_github" id="code_github" cols="50" rows="30">// this is a sample code</textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="author">
-        <label>By <a href="http://markocen.com">MarkoCen</a>, @markocen</label>
-    </div>
+    <script type="text/javascript" src="test-assets/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="test-assets/codemirror.js"></script>
+    <script type="text/javascript" src="test-assets/mode/htmlembedded/htmlembedded.js"></script>
+    <script type="text/javascript" src="test-assets/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="test-assets/mode/css/css.js"></script>
+    <script type="text/javascript" src="test-assets/mode/htmlmixed/htmlmixed.js"></script>
 
-    <div class="row flair-container"></div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script> -->
+    <!-- <script type="text/javascript" src="https://codemirror.net/mode/htmlembedded/htmlembedded.js"></script> -->
+    <!-- <script type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script> -->
+    <!-- <script type="text/javascript" src="https://codemirror.net/mode/css/css.js"></script> -->
+    <!-- <script type="text/javascript" src="https://codemirror.net/mode/htmlmixed/htmlmixed.js"></script> -->
 
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-    <script src="./flairStyles.js"></script>
-    <script src="./script.js"></script>
+    <script type="text/javascript" src="assets/js/theme.js"></script>
+    <script type="text/javascript" src="assets/js/dev-networks-flairs.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 </body>
+
 </html>

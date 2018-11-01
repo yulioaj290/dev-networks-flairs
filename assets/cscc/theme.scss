@@ -1,0 +1,434 @@
+$colors: (
+    primary: (
+        red: #f44336,
+        pink: #e91e63,
+        purple: #9c27b0,
+        deepPurple: #673ab7,
+        indigo: #3f51b5,
+        blue: #2196f3,
+        lightBlue: #03a9f4,
+        cyan: #00bcd4,
+        teal: #009688,
+        green: #4caf50,
+        lightGreen: #8bc34a,
+        lime: #cddc39,
+        yellow: #ffeb3b,
+        amber: #ffc107,
+        orange: #ff9800,
+        deepOrange: #ff5722,
+        brown: #795548,
+        grey: #9e9e9e,
+        blueGrey: #607d8b,
+        black: #000000,
+        white: #ffffff
+    ),
+    light: (
+        red: #ffcdd2,
+        pink: #f8bbd0,
+        purple: #e1bee7,
+        deepPurple: #d1c4e9,
+        indigo: #c5cae9,
+        blue: #bbdefb,
+        lightBlue: #b3e5fc,
+        cyan: #b2ebf2,
+        teal: #b2dfdb,
+        green: #c8e6c9,
+        lightGreen: #dcedc8,
+        lime: #f0f4c3,
+        yellow: #fff9c4,
+        amber: #ffecb3,
+        orange: #ffe0b2,
+        deepOrange: #ffccbc,
+        brown: #d7ccc8,
+        grey: #f5f5f5,
+        blueGray: #cfd8dc,
+        black: rgba(0, 0, 0, 0.26),
+        white: rgba(255, 255, 255, 0.26)
+    ),
+    textLight: (
+        "red",
+        "pink",
+        "purple",
+        "deepPurple",
+        "indigo",
+        "blue",
+        "teal",
+        "deepOrange",
+        "brown",
+        "blueGrey",
+        "black"
+    ),
+    textDark: (
+        "lightBlue",
+        "cyan",
+        "green",
+        "lightGreen",
+        "yellow",
+        "amber",
+        "orange",
+        "grey",
+        "white"
+    )
+);
+$typesFlair: "flair", "cards";
+$fullWidth: 100%;
+$halfWidth: 50%;
+$fullHeight: 100%;
+$halfHeight: 50%;
+$flairImageWidth: 70px;
+$cardsImageWidth: 120px;
+/* General styles */
+
+.bold {
+    font-weight: bold;
+}
+
+.network-flair {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+    position: relative;
+    overflow: hidden;
+    .corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .image {
+        &::before {
+            content: "";
+            position: absolute;
+        }
+        img {
+            z-index: 10;
+        }
+        &.circle {
+            &::before {
+                border-radius: 50%;
+            }
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
+    .info {
+        min-width: 0;
+        p.data {
+            margin: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+}
+
+/* Flair styles */
+
+%flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.network-flair {
+    &.flair {
+        width: $fullWidth;
+        height: 110px;
+        @extend %flex-center;
+        .image {
+            width: $flairImageWidth;
+            height: $flairImageWidth;
+            margin: 0 20px;
+            flex-shrink: 0;
+            @extend %flex-center;
+            &::before {
+                left: 17px;
+                width: $flairImageWidth + 6px;
+                height: $flairImageWidth + 6px;
+            }
+            img {
+                width: $fullWidth;
+                height: $fullHeight;
+            }
+        }
+        .info {
+            flex-grow: 1;
+            text-align: right;
+            padding: 13px 30px 15px 0;
+        }
+    }
+    &.cards {
+        width: $fullWidth;
+        flex-direction: column;
+        @extend %flex-center;
+        .image {
+            width: $fullWidth;
+            height: $cardsImageWidth;
+            position: relative;
+            @extend %bgWhite;
+            @extend %flex-center;
+            &::before {
+                $imgWidth: $cardsImageWidth + 26px;
+                width: $imgWidth;
+                height: $imgWidth;
+                left: calc(#{$halfWidth} - (#{$imgWidth} / 2));
+                top: 47px;
+            }
+            img {
+                position: absolute;
+                $imgWidth: $cardsImageWidth + 20px;
+                width: $imgWidth;
+                height: $imgWidth;
+                left: calc(#{$halfWidth} - (#{$imgWidth} / 2));
+                top: 50px;
+            }
+        }
+        .info {
+            width: $fullWidth;
+            text-align: center;
+            padding: 105px 0 40px 0;
+        }
+    }
+}
+
+/* Colored themes */
+
+%border0 {
+    border: 0;
+}
+%colorWhite {
+    color: #ffffff;
+}
+%colorBlack {
+    color: #000000;
+}
+%colorTxDecor {
+    text-decoration: underline;
+}
+%fillSvgWhite {
+    fill: #ffffff;
+}
+%fillSvgBlack {
+    fill: #000000;
+}
+@mixin textColor($list, $item) {
+    @if (index(map-get($list, textLight), #{$item})) {
+        @extend %colorWhite;
+    } @else {
+        @extend %colorBlack;
+    }
+}
+@mixin svgColor($list, $item) {
+    @if (index(map-get($list, textLight), #{$item})) {
+        @extend %fillSvgWhite;
+    } @else {
+        @extend %fillSvgBlack;
+    }
+}
+.network-flair {
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color}.flair .corner > svg,
+        &.#{$color}.cards .corner > svg {
+            @extend %border0;
+        }
+    }
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            a {
+                &,
+                &:hover,
+                &:active,
+                &:visited {
+                    @extend %colorTxDecor;
+                    @include textColor($colors, $color);
+                }
+            }
+        }
+    }
+    %txDecN {
+        text-decoration: none;
+    }
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            a:hover {
+                @extend %txDecN;
+            }
+        }
+    }
+    %bgWhite {
+        background-color: #ffffff;
+    }
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            .image::before {
+                @extend %bgWhite;
+            }
+        }
+    }
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            @each $type in $typesFlair {
+                @if $type== "flair" {
+                    &.#{$type} {
+                        .info {
+                            @include textColor($colors, $color);
+                        }
+                    }
+                } @else if $type== "cards" {
+                    &.#{$type} {
+                        .info {
+                            @include textColor($colors, $color);
+                            a {
+                                &,
+                                &:hover,
+                                &:active,
+                                &:visited {
+                                    @include textColor($colors, $color);
+                                }
+                            }
+                        }
+                        .corner > svg {
+                            @extend %colorWhite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            @each $type in $typesFlair {
+                &.#{$type} {
+                    .info svg {
+                        @include svgColor($colors, $color);
+                    }
+                    @if $type== "flair" {
+                        .corner > svg {
+                            @include svgColor($colors, $color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* Each colored theme */
+    @each $color, $value in map-get($colors, primary) {
+        &.#{$color} {
+            border: 1px solid #{$value};
+            .image img {
+                border: 1px solid #{$value};
+            }
+            @each $type in $typesFlair {
+                @if $type== "flair" {
+                    &.#{$type} {
+                        background-color: #{$value};
+                        .corner > svg {
+                            color: #{$value};
+                        }
+                    }
+                } @else if $type== "cards" {
+                    &.#{$type} {
+                        .corner > svg {
+                            fill: #{$value};
+                        }
+                        .info {
+                            background-color: #{$value};
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @each $color, $value in map-get($colors, light) {
+        &.#{$color} {
+            .image::before {
+                border: 1px solid #{$value};
+            }
+        }
+    }
+    /* White color style */
+    &.white {
+        border: 1px solid #000000;
+        .image {
+            &::before {
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+            }
+            img {
+                border: 1px solid #000000;
+            }
+        }
+        a {
+            &,
+            &:hover,
+            &:active,
+            &:visited {
+                @extend %colorBlack;
+            }
+        }
+        @each $type in $typesFlair {
+            @if $type== "flair" {
+                &.#{$type} {
+                    .info {
+                        @extend %colorBlack;
+                    }
+                    .corner > svg {
+                        fill: #151513;
+                    }
+                }
+            } @else if $type== "cards" {
+                &.#{$type} {
+                    .image {
+                        background-color: #000000;
+                    }
+                    .info {
+                        @extend %colorBlack;
+                        a {
+                            &,
+                            &:hover,
+                            &:active,
+                            &:visited {
+                                @extend %colorBlack;
+                            }
+                        }
+                    }
+                    .corner > svg {
+                        fill: #ffffff;
+                        color: #151513;
+                    }
+                }
+            }
+            &.#{$type} {
+                .info {
+                    svg {
+                        fill: #000000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* Extra styles */
+
+@each $color, $value in map-get($colors, primary) {
+    button.#{$color} {
+        @include textColor($colors, $color);
+        background-color: #{$value};
+        &:hover{
+            background-color: lighten($value, 20%);
+        }
+    }
+}
+
+button.white {
+    color: #000000;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+}
+
+button.white:hover {
+    color: #000000;
+    border: 1px solid #000000;
+    background-color: #eeeeee;
+}
