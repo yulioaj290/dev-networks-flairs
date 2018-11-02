@@ -79,6 +79,10 @@ $flairImageWidth: 70px;
 $cardsImageWidth: 120px;
 /* General styles */
 
+%rounded-flair {
+    border-radius: 4px !important;
+}
+
 .bold {
     font-weight: bold;
 }
@@ -89,6 +93,9 @@ $cardsImageWidth: 120px;
         "Segoe UI Emoji", "Segoe UI Symbol";
     position: relative;
     overflow: hidden;
+    &.rounded {
+        @extend %rounded-flair;
+    }
     .corner {
         position: absolute;
         top: 0;
@@ -411,8 +418,33 @@ $cardsImageWidth: 120px;
 
 /* Extra styles */
 
+.network-flair {
+    &.flair-text-light {
+        .info * {
+            color: #ffffff !important;
+        }
+        .info svg {
+            fill: #ffffff !important;
+        }
+        &.flair .corner > svg {
+            fill: #ffffff !important;
+        }
+    }
+    &.flair-text-dark {
+        .info * {
+            color: #000000 !important;
+        }
+        .info svg {
+            fill: #000000 !important;
+        }
+        &.flair .corner > svg {
+            fill: #000000 !important;
+        }
+    }
+}
+
 @each $color, $value in map-get($colors, primary) {
-    button.#{$color} {
+    .#{$color} {
         @include textColor($colors, $color);
         background-color: #{$value};
         &:hover{
@@ -421,13 +453,13 @@ $cardsImageWidth: 120px;
     }
 }
 
-button.white {
+.white {
     color: #000000;
     border: 1px solid #000000;
     background-color: #ffffff;
 }
 
-button.white:hover {
+.white:hover {
     color: #000000;
     border: 1px solid #000000;
     background-color: #eeeeee;

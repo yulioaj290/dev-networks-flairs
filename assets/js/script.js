@@ -22,17 +22,40 @@
             e.preventDefault();
             var flair = $(".network-flair.flair");
             var cards = $(".network-flair.cards");
-            var color = flair.data("color");
-            var currColor = $(this).data("color");
+            var color = flair.attr("data-color");
+            var currColor = $(this).attr("data-color");
             flair.removeClass(color);
             cards.removeClass(color);
             flair.addClass(currColor);
             cards.addClass(currColor);
-            flair.data("color", currColor);
-            cards.data("color", currColor);
+            flair.attr("data-color", currColor);
+            // flair.attr("data-color", currColor);
+            cards.attr("data-color", currColor);
 
             updateCode(codeGithub);
         });
+
+        $('#load_data').click(function (e) { 
+            e.preventDefault();
+            var github = $('#username').val();
+            var stackof = $('#userid').val();
+
+            $(".network-flair.github.flair").attr('data-user', github);
+            $(".network-flair.github.cards").attr('data-user', github);
+            updateCode(codeGithub);
+
+            // buildFlairs();
+        });
+
+        $("body").on('DOMSubtreeModified', ".network-flair", function() {
+            // alert('changed');
+        });
+
+        // setting data initial color
+        var flair = $(".network-flair.flair");
+        var cards = $(".network-flair.cards");
+        flair.addClass(flair.attr("data-color"));
+        cards.addClass(cards.attr("data-color"));
 
         updateCode(codeGithub);
     });

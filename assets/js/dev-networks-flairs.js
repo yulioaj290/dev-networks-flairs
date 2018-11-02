@@ -78,9 +78,9 @@
         if (flair.length) {
             var network = "";
             flair.each(function() {
-                network = $(this).data("flair");
+                network = $(this).attr("data-flair");
 
-                var dataTheme = $(this).data("theme");
+                var dataTheme = $(this).attr("data-theme");
 
                 if (dataTheme !== undefined && dataTheme !== false && themes !== undefined) {
                     $(this).html("\n" + themes[dataTheme] + "\n");
@@ -103,28 +103,28 @@
     function afterSetTheme(flairItem, network, userid) {
 
         //--------------------TMP
-        // if (network === "github") {
-        //     getProfile(network, githubTmpData);
-        // } else if (network === "stackoverflow") {
-        //     getProfile(network, stackofTmpData);
-        // }
-        // setProperties(flairItem);
+        if (network === "github") {
+            getProfile(network, githubTmpData);
+        } else if (network === "stackoverflow") {
+            getProfile(network, stackofTmpData);
+        }
+        setProperties(flairItem);
         //--------------------TMP
 
 
-        if (!userid) {
-            c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a user id of " + network + ".");
-        } else {
-            getUser(network, userid).then(function (data) {
-                getProfile(network, data);
-                setProperties(flairItem);
-            });
-        }
+        // if (!userid) {
+        //     c("DEV NETWORKS FLAIRS [ERROR]: You must to provide a user id of " + network + ".");
+        // } else {
+        //     getUser(network, userid).then(function (data) {
+        //         getProfile(network, data);
+        //         setProperties(flairItem);
+        //     });
+        // }
     }
 
     function getInput(node) {
-        // c(node.data('user'));
-        return node.data('user');
+        // c(node.attr('data-user'));
+        return node.attr('data-user');
     }
 
     function getUser(network, userid) {
@@ -208,7 +208,7 @@
 
     function setLink(flairItem, property, value) {
         flairItem.find('[data-property="' + property + '"]').each(function() {
-            var link = $(this).data("link");
+            var link = $(this).attr("data-link");
 
             if (link === "link") {
                 $(this).attr("href", value);

@@ -18,7 +18,7 @@ body {
     box-shadow: 0 0 10px rgb(208, 231, 252);
 }
 
-.theme-colors .theme-buttons > button > span {
+.theme-colors .theme-buttons>button>span {
     display: none;
 }
 
@@ -46,20 +46,16 @@ body {
         width: 200px;
         left: 0;
     }
-
     .theme-colors.th-collapse {
         left: 0;
         width: 62px;
     }
-
-    .theme-colors .theme-buttons > button > span {
+    .theme-colors .theme-buttons>button>span {
         display: inline-block;
     }
-
-    .theme-colors.th-collapse .theme-buttons > button > span {
+    .theme-colors.th-collapse .theme-buttons>button>span {
         display: none;
     }
-
     .theme-icon {
         border-bottom-right-radius: 0;
     }
@@ -71,10 +67,9 @@ body {
     transition: all 0.4s;
 }
 
-.page-content.th-collapse {
-}
+.page-content.th-collapse {}
 
-@media (min-width: 992px) and (max-width: 1550px){
+@media (min-width: 992px) and (max-width: 1550px) {
     .page-content {
         width: calc(100% - 250px);
         margin-right: 50px;
@@ -247,7 +242,7 @@ body {
     cursor: pointer;
     padding: 0;
     border: 1px solid #c9c9c9;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     transition: background-color 0.13s ease-in;
 }
 
@@ -255,7 +250,7 @@ body {
     content: "";
     display: block;
     margin: 0px;
-    background: #FFFFFF;
+    background: #ffffff;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -265,12 +260,12 @@ body {
 }
 
 .onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label {
-    background-color: #1AB394;
+    background-color: #1ab394;
 }
 
 .onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label,
 .onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label:before {
-    border-color: #1AB394;
+    border-color: #1ab394;
 }
 
 .onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label:before {
@@ -280,12 +275,12 @@ body {
 /* without input checkbox  */
 
 .onoffswitch-ios-label.checked {
-    background-color: #1AB394;
+    background-color: #1ab394;
 }
 
 .onoffswitch-ios-label.checked,
 .onoffswitch-ios-label.checked:before {
-    border-color: #1AB394;
+    border-color: #1ab394;
 }
 
 .onoffswitch-ios-label.checked:before {
@@ -293,12 +288,12 @@ body {
 }
 
 .onoffswitch-ios-label.checked.disabled {
-    background-color: #A3A3A3;
+    background-color: #a3a3a3;
 }
 
 .onoffswitch-ios-label.checked.disabled,
 .onoffswitch-ios-label.checked.disabled:before {
-    border-color: #A3A3A3;
+    border-color: #a3a3a3;
 }
 
 .CodeMirror {
