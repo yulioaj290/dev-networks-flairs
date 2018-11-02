@@ -29,7 +29,6 @@
             flair.addClass(currColor);
             cards.addClass(currColor);
             flair.attr("data-color", currColor);
-            // flair.attr("data-color", currColor);
             cards.attr("data-color", currColor);
 
             updateCode(codeGithub);
