@@ -1,7 +1,7 @@
 (function(themes) {
     themes.githubFlair = `
     <!-- --------- Loaded from theme [Begin] --------- -->
-    <div class="image circle">
+    <div class="image">
         <img src="#" alt="" data-property="avatar" data-link="src">
     </div>
     <div class="info">
@@ -46,7 +46,7 @@
 
     themes.githubCards = `
     <!-- --------- Loaded from theme [Begin] --------- -->
-    <div class="image circle">
+    <div class="image">
         <img src="#" alt="" data-property="avatar" data-link="src">
     </div>
     <div class="info">
