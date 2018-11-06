@@ -8,13 +8,20 @@
 }
 
 .network-flair {
+  background-color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   position: relative;
   overflow: hidden;
 }
-.network-flair .corner {
+.network-flair.github .corner {
   position: absolute;
   top: 0;
+  right: 0;
+}
+.network-flair.stackoverflow .corner,
+.network-flair.stackoverflow .corner svg {
+  position: absolute;
+  bottom: 0;
   right: 0;
 }
 .network-flair .image::before {
@@ -68,7 +75,7 @@
 .network-flair.flair .info {
   flex-grow: 1;
   text-align: right;
-  padding: 13px 30px 15px 0;
+  padding: 13px 35px 15px 0;
 }
 .network-flair.cards {
   width: 100%;
@@ -115,11 +122,11 @@
   text-decoration: underline;
 }
 
-.network-flair.red.flair .info svg, .network-flair.red.flair .corner > svg, .network-flair.red.cards .info svg, .network-flair.pink.flair .info svg, .network-flair.pink.flair .corner > svg, .network-flair.pink.cards .info svg, .network-flair.purple.flair .info svg, .network-flair.purple.flair .corner > svg, .network-flair.purple.cards .info svg, .network-flair.deepPurple.flair .info svg, .network-flair.deepPurple.flair .corner > svg, .network-flair.deepPurple.cards .info svg, .network-flair.indigo.flair .info svg, .network-flair.indigo.flair .corner > svg, .network-flair.indigo.cards .info svg, .network-flair.blue.flair .info svg, .network-flair.blue.flair .corner > svg, .network-flair.blue.cards .info svg, .network-flair.teal.flair .info svg, .network-flair.teal.flair .corner > svg, .network-flair.teal.cards .info svg, .network-flair.deepOrange.flair .info svg, .network-flair.deepOrange.flair .corner > svg, .network-flair.deepOrange.cards .info svg, .network-flair.brown.flair .info svg, .network-flair.brown.flair .corner > svg, .network-flair.brown.cards .info svg, .network-flair.blueGrey.flair .info svg, .network-flair.blueGrey.flair .corner > svg, .network-flair.blueGrey.cards .info svg, .network-flair.black.flair .info svg, .network-flair.black.flair .corner > svg, .network-flair.black.cards .info svg {
+.network-flair.red.flair .info svg, .network-flair.red.flair .corner > svg, .network-flair.red.cards .info svg, .network-flair.pink.flair .info svg, .network-flair.pink.flair .corner > svg, .network-flair.pink.cards .info svg, .network-flair.purple.flair .info svg, .network-flair.purple.flair .corner > svg, .network-flair.purple.cards .info svg, .network-flair.deepPurple.flair .info svg, .network-flair.deepPurple.flair .corner > svg, .network-flair.deepPurple.cards .info svg, .network-flair.indigo.flair .info svg, .network-flair.indigo.flair .corner > svg, .network-flair.indigo.cards .info svg, .network-flair.blue.flair .info svg, .network-flair.blue.flair .corner > svg, .network-flair.blue.cards .info svg, .network-flair.teal.flair .info svg, .network-flair.teal.flair .corner > svg, .network-flair.teal.cards .info svg, .network-flair.deepOrange.flair .info svg, .network-flair.deepOrange.flair .corner > svg, .network-flair.deepOrange.cards .info svg, .network-flair.brown.flair .info svg, .network-flair.brown.flair .corner > svg, .network-flair.brown.cards .info svg, .network-flair.blueGrey.flair .info svg, .network-flair.blueGrey.flair .corner > svg, .network-flair.blueGrey.cards .info svg, .network-flair.black.flair .info svg, .network-flair.black.flair .corner > svg, .network-flair.black.cards .info svg, .network-flair.red.cards.stackoverflow .corner .st-back, .network-flair.pink.cards.stackoverflow .corner .st-back, .network-flair.purple.cards.stackoverflow .corner .st-back, .network-flair.deepPurple.cards.stackoverflow .corner .st-back, .network-flair.indigo.cards.stackoverflow .corner .st-back, .network-flair.blue.cards.stackoverflow .corner .st-back, .network-flair.teal.cards.stackoverflow .corner .st-back, .network-flair.deepOrange.cards.stackoverflow .corner .st-back, .network-flair.brown.cards.stackoverflow .corner .st-back, .network-flair.blueGrey.cards.stackoverflow .corner .st-back, .network-flair.black.cards.stackoverflow .corner .st-back {
   fill: #ffffff;
 }
 
-.network-flair.lightBlue.flair .info svg, .network-flair.lightBlue.flair .corner > svg, .network-flair.lightBlue.cards .info svg, .network-flair.cyan.flair .info svg, .network-flair.cyan.flair .corner > svg, .network-flair.cyan.cards .info svg, .network-flair.green.flair .info svg, .network-flair.green.flair .corner > svg, .network-flair.green.cards .info svg, .network-flair.lightGreen.flair .info svg, .network-flair.lightGreen.flair .corner > svg, .network-flair.lightGreen.cards .info svg, .network-flair.lime.flair .info svg, .network-flair.lime.flair .corner > svg, .network-flair.lime.cards .info svg, .network-flair.yellow.flair .info svg, .network-flair.yellow.flair .corner > svg, .network-flair.yellow.cards .info svg, .network-flair.amber.flair .info svg, .network-flair.amber.flair .corner > svg, .network-flair.amber.cards .info svg, .network-flair.orange.flair .info svg, .network-flair.orange.flair .corner > svg, .network-flair.orange.cards .info svg, .network-flair.grey.flair .info svg, .network-flair.grey.flair .corner > svg, .network-flair.grey.cards .info svg, .network-flair.white.flair .info svg, .network-flair.white.flair .corner > svg, .network-flair.white.cards .info svg {
+.network-flair.lightBlue.flair .info svg, .network-flair.lightBlue.flair .corner > svg, .network-flair.lightBlue.cards .info svg, .network-flair.cyan.flair .info svg, .network-flair.cyan.flair .corner > svg, .network-flair.cyan.cards .info svg, .network-flair.green.flair .info svg, .network-flair.green.flair .corner > svg, .network-flair.green.cards .info svg, .network-flair.lightGreen.flair .info svg, .network-flair.lightGreen.flair .corner > svg, .network-flair.lightGreen.cards .info svg, .network-flair.lime.flair .info svg, .network-flair.lime.flair .corner > svg, .network-flair.lime.cards .info svg, .network-flair.yellow.flair .info svg, .network-flair.yellow.flair .corner > svg, .network-flair.yellow.cards .info svg, .network-flair.amber.flair .info svg, .network-flair.amber.flair .corner > svg, .network-flair.amber.cards .info svg, .network-flair.orange.flair .info svg, .network-flair.orange.flair .corner > svg, .network-flair.orange.cards .info svg, .network-flair.grey.flair .info svg, .network-flair.grey.flair .corner > svg, .network-flair.grey.cards .info svg, .network-flair.white.flair .info svg, .network-flair.white.flair .corner > svg, .network-flair.white.cards .info svg, .network-flair.lightBlue.cards.stackoverflow .corner .st-back, .network-flair.cyan.cards.stackoverflow .corner .st-back, .network-flair.green.cards.stackoverflow .corner .st-back, .network-flair.lightGreen.cards.stackoverflow .corner .st-back, .network-flair.lime.cards.stackoverflow .corner .st-back, .network-flair.yellow.cards.stackoverflow .corner .st-back, .network-flair.amber.cards.stackoverflow .corner .st-back, .network-flair.orange.cards.stackoverflow .corner .st-back, .network-flair.grey.cards.stackoverflow .corner .st-back, .network-flair.white.cards.stackoverflow .corner .st-back {
   fill: #000000;
 }
 
@@ -145,6 +152,9 @@
 .network-flair.red.flair .corner > svg {
   color: #f44336;
 }
+.network-flair.red.flair.stackoverflow .corner .st-box, .network-flair.red.flair.stackoverflow .corner .st-bars {
+  fill: #f44336;
+}
 .network-flair.red.cards .corner > svg {
   fill: #f44336;
 }
@@ -162,6 +172,9 @@
 }
 .network-flair.pink.flair .corner > svg {
   color: #e91e63;
+}
+.network-flair.pink.flair.stackoverflow .corner .st-box, .network-flair.pink.flair.stackoverflow .corner .st-bars {
+  fill: #e91e63;
 }
 .network-flair.pink.cards .corner > svg {
   fill: #e91e63;
@@ -181,6 +194,9 @@
 .network-flair.purple.flair .corner > svg {
   color: #9c27b0;
 }
+.network-flair.purple.flair.stackoverflow .corner .st-box, .network-flair.purple.flair.stackoverflow .corner .st-bars {
+  fill: #9c27b0;
+}
 .network-flair.purple.cards .corner > svg {
   fill: #9c27b0;
 }
@@ -198,6 +214,9 @@
 }
 .network-flair.deepPurple.flair .corner > svg {
   color: #673ab7;
+}
+.network-flair.deepPurple.flair.stackoverflow .corner .st-box, .network-flair.deepPurple.flair.stackoverflow .corner .st-bars {
+  fill: #673ab7;
 }
 .network-flair.deepPurple.cards .corner > svg {
   fill: #673ab7;
@@ -217,6 +236,9 @@
 .network-flair.indigo.flair .corner > svg {
   color: #3f51b5;
 }
+.network-flair.indigo.flair.stackoverflow .corner .st-box, .network-flair.indigo.flair.stackoverflow .corner .st-bars {
+  fill: #3f51b5;
+}
 .network-flair.indigo.cards .corner > svg {
   fill: #3f51b5;
 }
@@ -234,6 +256,9 @@
 }
 .network-flair.blue.flair .corner > svg {
   color: #2196f3;
+}
+.network-flair.blue.flair.stackoverflow .corner .st-box, .network-flair.blue.flair.stackoverflow .corner .st-bars {
+  fill: #2196f3;
 }
 .network-flair.blue.cards .corner > svg {
   fill: #2196f3;
@@ -253,6 +278,9 @@
 .network-flair.lightBlue.flair .corner > svg {
   color: #03a9f4;
 }
+.network-flair.lightBlue.flair.stackoverflow .corner .st-box, .network-flair.lightBlue.flair.stackoverflow .corner .st-bars {
+  fill: #03a9f4;
+}
 .network-flair.lightBlue.cards .corner > svg {
   fill: #03a9f4;
 }
@@ -270,6 +298,9 @@
 }
 .network-flair.cyan.flair .corner > svg {
   color: #00bcd4;
+}
+.network-flair.cyan.flair.stackoverflow .corner .st-box, .network-flair.cyan.flair.stackoverflow .corner .st-bars {
+  fill: #00bcd4;
 }
 .network-flair.cyan.cards .corner > svg {
   fill: #00bcd4;
@@ -289,6 +320,9 @@
 .network-flair.teal.flair .corner > svg {
   color: #009688;
 }
+.network-flair.teal.flair.stackoverflow .corner .st-box, .network-flair.teal.flair.stackoverflow .corner .st-bars {
+  fill: #009688;
+}
 .network-flair.teal.cards .corner > svg {
   fill: #009688;
 }
@@ -306,6 +340,9 @@
 }
 .network-flair.green.flair .corner > svg {
   color: #4caf50;
+}
+.network-flair.green.flair.stackoverflow .corner .st-box, .network-flair.green.flair.stackoverflow .corner .st-bars {
+  fill: #4caf50;
 }
 .network-flair.green.cards .corner > svg {
   fill: #4caf50;
@@ -325,6 +362,9 @@
 .network-flair.lightGreen.flair .corner > svg {
   color: #8bc34a;
 }
+.network-flair.lightGreen.flair.stackoverflow .corner .st-box, .network-flair.lightGreen.flair.stackoverflow .corner .st-bars {
+  fill: #8bc34a;
+}
 .network-flair.lightGreen.cards .corner > svg {
   fill: #8bc34a;
 }
@@ -342,6 +382,9 @@
 }
 .network-flair.lime.flair .corner > svg {
   color: #cddc39;
+}
+.network-flair.lime.flair.stackoverflow .corner .st-box, .network-flair.lime.flair.stackoverflow .corner .st-bars {
+  fill: #cddc39;
 }
 .network-flair.lime.cards .corner > svg {
   fill: #cddc39;
@@ -361,6 +404,9 @@
 .network-flair.yellow.flair .corner > svg {
   color: #ffeb3b;
 }
+.network-flair.yellow.flair.stackoverflow .corner .st-box, .network-flair.yellow.flair.stackoverflow .corner .st-bars {
+  fill: #ffeb3b;
+}
 .network-flair.yellow.cards .corner > svg {
   fill: #ffeb3b;
 }
@@ -378,6 +424,9 @@
 }
 .network-flair.amber.flair .corner > svg {
   color: #ffc107;
+}
+.network-flair.amber.flair.stackoverflow .corner .st-box, .network-flair.amber.flair.stackoverflow .corner .st-bars {
+  fill: #ffc107;
 }
 .network-flair.amber.cards .corner > svg {
   fill: #ffc107;
@@ -397,6 +446,9 @@
 .network-flair.orange.flair .corner > svg {
   color: #ff9800;
 }
+.network-flair.orange.flair.stackoverflow .corner .st-box, .network-flair.orange.flair.stackoverflow .corner .st-bars {
+  fill: #ff9800;
+}
 .network-flair.orange.cards .corner > svg {
   fill: #ff9800;
 }
@@ -414,6 +466,9 @@
 }
 .network-flair.deepOrange.flair .corner > svg {
   color: #ff5722;
+}
+.network-flair.deepOrange.flair.stackoverflow .corner .st-box, .network-flair.deepOrange.flair.stackoverflow .corner .st-bars {
+  fill: #ff5722;
 }
 .network-flair.deepOrange.cards .corner > svg {
   fill: #ff5722;
@@ -433,6 +488,9 @@
 .network-flair.brown.flair .corner > svg {
   color: #795548;
 }
+.network-flair.brown.flair.stackoverflow .corner .st-box, .network-flair.brown.flair.stackoverflow .corner .st-bars {
+  fill: #795548;
+}
 .network-flair.brown.cards .corner > svg {
   fill: #795548;
 }
@@ -450,6 +508,9 @@
 }
 .network-flair.grey.flair .corner > svg {
   color: #9e9e9e;
+}
+.network-flair.grey.flair.stackoverflow .corner .st-box, .network-flair.grey.flair.stackoverflow .corner .st-bars {
+  fill: #9e9e9e;
 }
 .network-flair.grey.cards .corner > svg {
   fill: #9e9e9e;
@@ -469,6 +530,9 @@
 .network-flair.blueGrey.flair .corner > svg {
   color: #607d8b;
 }
+.network-flair.blueGrey.flair.stackoverflow .corner .st-box, .network-flair.blueGrey.flair.stackoverflow .corner .st-bars {
+  fill: #607d8b;
+}
 .network-flair.blueGrey.cards .corner > svg {
   fill: #607d8b;
 }
@@ -487,6 +551,9 @@
 .network-flair.black.flair .corner > svg {
   color: #000000;
 }
+.network-flair.black.flair.stackoverflow .corner .st-box, .network-flair.black.flair.stackoverflow .corner .st-bars {
+  fill: #000000;
+}
 .network-flair.black.cards .corner > svg {
   fill: #000000;
 }
@@ -504,6 +571,9 @@
 }
 .network-flair.white.flair .corner > svg {
   color: #ffffff;
+}
+.network-flair.white.flair.stackoverflow .corner .st-box, .network-flair.white.flair.stackoverflow .corner .st-bars {
+  fill: #ffffff;
 }
 .network-flair.white.cards .corner > svg {
   fill: #ffffff;
@@ -611,6 +681,9 @@
 .network-flair.flair-text-light.flair .corner > svg {
   fill: #ffffff !important;
 }
+.network-flair.flair-text-light.stackoverflow.cards .corner .st-back {
+  fill: #ffffff !important;
+}
 .network-flair.flair-text-dark .info * {
   color: #000000 !important;
 }
@@ -618,6 +691,9 @@
   fill: #000000 !important;
 }
 .network-flair.flair-text-dark.flair .corner > svg {
+  fill: #000000 !important;
+}
+.network-flair.flair-text-dark.stackoverflow.cards .corner .st-back {
   fill: #000000 !important;
 }
 
@@ -778,6 +854,32 @@
   color: #000000;
   border: 1px solid #000000;
   background-color: #eeeeee;
+}
+
+.badge-bronze, .badge-silver, .badge-gold {
+  padding-left: 15px;
+  position: relative;
+}
+.badge-bronze::before, .badge-silver::before, .badge-gold::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.badge-bronze::before {
+  background-color: #d1a684;
+}
+
+.badge-silver::before {
+  background-color: #b4b8bc;
+}
+
+.badge-gold::before {
+  background-color: #ffcc01;
 }
 
 /*# sourceMappingURL=theme.css.map */

@@ -88,6 +88,7 @@ $cardsImageWidth: 120px;
 }
 
 .network-flair {
+    background-color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
         "Segoe UI Emoji", "Segoe UI Symbol";
@@ -96,10 +97,18 @@ $cardsImageWidth: 120px;
     &.rounded {
         @extend %rounded-flair;
     }
-    .corner {
+    &.github .corner {
         position: absolute;
         top: 0;
         right: 0;
+    }
+    &.stackoverflow .corner {
+        &,
+        svg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
     }
     .image {
         &::before {
@@ -125,6 +134,7 @@ $cardsImageWidth: 120px;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+
         }
     }
 }
@@ -160,7 +170,7 @@ $cardsImageWidth: 120px;
         .info {
             flex-grow: 1;
             text-align: right;
-            padding: 13px 30px 15px 0;
+            padding: 13px 35px 15px 0;
         }
     }
     &.cards {
@@ -202,21 +212,27 @@ $cardsImageWidth: 120px;
 %border0 {
     border: 0;
 }
+
 %colorWhite {
     color: #ffffff;
 }
+
 %colorBlack {
     color: #000000;
 }
+
 %colorTxDecor {
     text-decoration: underline;
 }
+
 %fillSvgWhite {
     fill: #ffffff;
 }
+
 %fillSvgBlack {
     fill: #000000;
 }
+
 @mixin textColor($list, $item) {
     @if (index(map-get($list, textLight), #{$item})) {
         @extend %colorWhite;
@@ -224,6 +240,7 @@ $cardsImageWidth: 120px;
         @extend %colorBlack;
     }
 }
+
 @mixin svgColor($list, $item) {
     @if (index(map-get($list, textLight), #{$item})) {
         @extend %fillSvgWhite;
@@ -231,6 +248,7 @@ $cardsImageWidth: 120px;
         @extend %fillSvgBlack;
     }
 }
+
 .network-flair {
     @each $color, $value in map-get($colors, primary) {
         &.#{$color}.flair .corner > svg,
@@ -331,6 +349,11 @@ $cardsImageWidth: 120px;
                         .corner > svg {
                             color: #{$value};
                         }
+                        &.stackoverflow .corner {
+                            .st-box, .st-bars {
+                                fill: #{$value};
+                            }
+                        }
                     }
                 } @else if $type== "cards" {
                     &.#{$type} {
@@ -339,6 +362,11 @@ $cardsImageWidth: 120px;
                         }
                         .info {
                             background-color: #{$value};
+                        }
+                        &.stackoverflow .corner {
+                            .st-back {
+                                @include svgColor($colors, $color);
+                            }
                         }
                     }
                 }
@@ -415,7 +443,6 @@ $cardsImageWidth: 120px;
     }
 }
 
-
 /* Extra styles */
 
 .network-flair {
@@ -429,6 +456,11 @@ $cardsImageWidth: 120px;
         &.flair .corner > svg {
             fill: #ffffff !important;
         }
+        &.stackoverflow.cards .corner {
+            .st-back {
+                fill: #ffffff !important;
+            }
+        }
     }
     &.flair-text-dark {
         .info * {
@@ -440,6 +472,11 @@ $cardsImageWidth: 120px;
         &.flair .corner > svg {
             fill: #000000 !important;
         }
+        &.stackoverflow.cards .corner {
+            .st-back {
+                fill: #000000 !important;
+            }
+        }
     }
 }
 
@@ -447,7 +484,7 @@ $cardsImageWidth: 120px;
     .#{$color} {
         @include textColor($colors, $color);
         background-color: #{$value};
-        &:hover{
+        &:hover {
             background-color: lighten($value, 20%);
         }
     }
@@ -463,4 +500,39 @@ $cardsImageWidth: 120px;
     color: #000000;
     border: 1px solid #000000;
     background-color: #eeeeee;
+}
+
+%st-badges {
+    padding-left: 15px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 9px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+    }
+}
+
+.badge-bronze {
+    @extend %st-badges;
+    &::before {
+        background-color: #d1a684;
+    }
+}
+
+.badge-silver {
+    @extend %st-badges;
+    &::before {
+        background-color: #b4b8bc;
+    }
+}
+
+.badge-gold {
+    @extend %st-badges;
+    &::before {
+        background-color: #ffcc01;
+    }
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: aliceblue;
+    background-color: #faffff;
 }
 
 .theme-colors {
@@ -14,7 +14,7 @@ body {
     overflow-x: scroll;
     transition: all 0.4s;
     z-index: 100;
-    background-color: aliceblue;
+    background-color: #faffff;
     box-shadow: 0 0 10px rgb(208, 231, 252);
 }
 
@@ -76,227 +76,19 @@ body {
     }
 }
 
-/* TOOGLE SWICH Template*/
-
-.switch {
-    display: inline-block;
-}
-
-.onoffswitch {
-    position: relative;
-    width: 64px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-.onoffswitch-checkbox {
-    display: none;
-}
-
-.onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid #1ab394;
-    border-radius: 2px;
-}
-
-.onoffswitch-inner {
-    width: 200%;
-    margin-left: -100%;
-    -moz-transition: margin 0.3s ease-in 0s;
-    -webkit-transition: margin 0.3s ease-in 0s;
-    -o-transition: margin 0.3s ease-in 0s;
-    transition: margin 0.3s ease-in 0s;
-}
-
-.onoffswitch-inner:before,
-.onoffswitch-inner:after {
-    float: left;
-    width: 50%;
-    height: 20px;
-    padding: 0;
-    line-height: 20px;
-    font-size: 12px;
-    color: white;
-    font-family: Trebuchet, Arial, sans-serif;
-    font-weight: bold;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
-    background-color: #1ab394;
-    color: #ffffff;
-}
-
-.onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
-    background-color: #ffffff;
-    color: #999999;
-    text-align: right;
-}
-
-.onoffswitch-switch {
-    width: 20px;
-    margin: 0;
-    background: #ffffff;
-    border: 2px solid #1ab394;
-    border-radius: 2px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 44px;
-    -moz-transition: all 0.3s ease-in 0s;
-    -webkit-transition: all 0.3s ease-in 0s;
-    -o-transition: all 0.3s ease-in 0s;
-    transition: all 0.3s ease-in 0s;
-}
-
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
-}
-
-.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
-    right: 0;
-}
-
-/* TOOGLE SWICH iOS8*/
-
-/* Normal   */
-
-.onoffswitch-ios {
-    width: 55px;
-}
-
-.onoffswitch-ios-label {
-    height: 30px;
-    line-height: 30px;
-    border-radius: 30px;
-    margin-bottom: 0;
-}
-
-.onoffswitch-ios-label:before {
-    width: 30px;
-    border-radius: 30px;
-    right: 25px;
-}
-
-/* Small   */
-
-.onoffswitch-ios.switch-sm {
-    width: 45px;
-}
-
-.switch-sm .onoffswitch-ios-label {
-    height: 25px;
-    line-height: 25px;
-    border-radius: 25px;
-}
-
-.switch-sm .onoffswitch-ios-label:before {
-    width: 25px;
-    border-radius: 25px;
-    right: 20px;
-}
-
-/* Extra Small   */
-
-.onoffswitch-ios.switch-xs {
-    width: 35px;
-}
-
-.switch-xs .onoffswitch-ios-label {
-    height: 20px;
-    line-height: 20px;
-    border-radius: 20px;
-}
-
-.switch-xs .onoffswitch-ios-label:before {
-    width: 20px;
-    border-radius: 20px;
-    right: 15px;
-}
-
-/*  Properties  */
-
-.onoffswitch-ios {
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-.onoffswitch-ios-checkbox {
-    display: none;
-}
-
-.onoffswitch-ios-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    padding: 0;
-    border: 1px solid #c9c9c9;
-    background-color: #ffffff;
-    transition: background-color 0.13s ease-in;
-}
-
-.onoffswitch-ios-label:before {
-    content: "";
-    display: block;
-    margin: 0px;
-    background: #ffffff;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    border: 1px solid #b0b0b0;
-    transition: all 0.13s ease-in 0s;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-}
-
-.onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label {
-    background-color: #1ab394;
-}
-
-.onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label,
-.onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label:before {
-    border-color: #1ab394;
-}
-
-.onoffswitch-ios-checkbox:checked+.onoffswitch-ios-label:before {
-    right: 0px;
-}
-
-/* without input checkbox  */
-
-.onoffswitch-ios-label.checked {
-    background-color: #1ab394;
-}
-
-.onoffswitch-ios-label.checked,
-.onoffswitch-ios-label.checked:before {
-    border-color: #1ab394;
-}
-
-.onoffswitch-ios-label.checked:before {
-    right: 0px;
-}
-
-.onoffswitch-ios-label.checked.disabled {
-    background-color: #a3a3a3;
-}
-
-.onoffswitch-ios-label.checked.disabled,
-.onoffswitch-ios-label.checked.disabled:before {
-    border-color: #a3a3a3;
-}
-
 .CodeMirror {
     line-height: 1.3;
+}
+
+.code_github .CodeMirror {
     height: 569px;
+}
+
+.code_stackof .CodeMirror {
+    height: 592px;
+}
+
+.inline-code .CodeMirror {
+    height: auto !important;
+    margin: 15px 0;
 }
