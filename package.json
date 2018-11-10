@@ -1,6 +1,6 @@
 {
   "name": "dev-networks-flairs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Developer networks flair generator that consume networks APIs.",
   "main": "dev-networks-flairs.js",
   "scripts": {
