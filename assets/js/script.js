@@ -89,7 +89,7 @@
         var stCardsN = stCards.get(0);
 
         // Options for the observer (which mutations to observe)
-        var config = { attributes: true, childList: true, subtree: true };
+        var config = { attributes: true, childList: true, characterData: true, subtree: true };
 
         // Callback function to execute when mutations are observed
         var callback = function() {
@@ -176,7 +176,7 @@
     function updateCode(codeMirror, typeFlair) {
         var code =
             "\n<!-- <<<<<<<<<< CODE FOR " +
-            String.toUpperCase(typeFlair) +
+            String.prototype.toUpperCase(typeFlair) +
             " FLAIR >>>>>>>>>> -->\n\n";
         code += $(".network-flair." + typeFlair + ".flair")
             .parent()
@@ -184,7 +184,7 @@
             .trim();
         code +=
             "\n\n\n<!-- <<<<<<<<<< CODE FOR " +
-            String.toUpperCase(typeFlair) +
+            String.prototype.toUpperCase(typeFlair) +
             " CARDS >>>>>>>>>> -->\n\n";
         code += $(".network-flair." + typeFlair + ".cards")
             .parent()
