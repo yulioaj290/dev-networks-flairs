@@ -41,16 +41,54 @@ function domFlairReady(themes, c) {
                         "."
                 );
             } else {
-                getUser(flairItem, network, userid);
+                var userPromise = new Promise(function(resolve, reject) {
+                    getUser(network, userid, function(response) {
+                        if (response.status !== 0) {
+                            // if response is not error
+                            // c(response.message);
+                            resolve();
+                        } else {
+                            c(response.message);
+                            reject();
+                        }
+                    });
+                });
+
+                // first execute main profile data Promise
+                userPromise.then(function() {
+                    // execute derivated or dependant Promises
+                    var listPromises = [];
+                    listPromises.push(
+                        new Promise(function(resolve, reject) {
+                            getGitHubUserRepos(network, userid, function(
+                                response
+                            ) {
+                                if (response.status !== 0) {
+                                    // if response is not error
+                                    // c(response.message);
+                                    resolve();
+                                } else {
+                                    c(response.message);
+                                    reject();
+                                }
+                            });
+                        })
+                    );
+
+                    Promise.all(listPromises).then(function() {
+                        // execute when all promises are fulfilled
+                        setProperties(flairItem);
+                    });
+                });
             }
         }
 
-        function getInput(node) {
-            // c(node.getAttribute('data-user'));
-            return node.getAttribute("data-user");
+        function getInput(flairItem) {
+            // c(flairItem.getAttribute('data-user'));
+            return flairItem.getAttribute("data-user");
         }
 
-        function getUser(flairItem, network, userid) {
+        function getUser(network, userid, callback) {
             var url;
 
             if (network === "github") {
@@ -63,35 +101,96 @@ function domFlairReady(themes, c) {
                     "?order=desc&sort=reputation&site=stackoverflow&filter=!Lot_8zr6DBKY4h6OoYkbF*";
             }
 
+            var successMessage =
+                "DEV NETWORKS FLAIRS [INFO]: The " +
+                network +
+                " user id data was retrieved successfully.";
+
+            var failedMessage =
+                "DEV NETWORKS FLAIRS [ERROR]: The " +
+                network +
+                " user id is not valid or was not found.";
+
             var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
+            xhr.addEventListener("load", function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        c(
-                            "DEV NETWORKS FLAIRS [INFO]: The " +
-                                network +
-                                " user id data was retrieved successfully."
-                        );
                         var data = JSON.parse(xhr.responseText);
-                        getProfile(network, data);
-                        setProperties(flairItem);
+                        getUserProfile(network, data);
+                        // execute callback when success
+                        callback({ status: 1, message: successMessage });
                     } else {
-                        c(
-                            "DEV NETWORKS FLAIRS [ERROR]: The " +
-                                network +
-                                " user id is not valid or was not found."
-                        );
-                        return false;
+                        // execute callback when failed
+                        callback({ status: 0, message: failedMessage });
                     }
                 }
-            };
+            });
+
+            xhr.addEventListener("error", function() {
+                // a listener which executes when the xhr request fails
+                // execute callback when failed
+                callback({ status: 0, message: failedMessage });
+            });
+
             xhr.open("GET", url, true);
             xhr.send();
         }
 
-        function getProfile(network, userData) {
-            profile = {};
+        function getGitHubUserRepos(network, userid, callback) {
+            if (network === "github") {
+                var url = API_GITHUB + "users/" + userid + "/repos";
+                var xhr = new XMLHttpRequest();
 
+                var successMessage =
+                    "DEV NETWORKS FLAIRS [INFO]: The github user repos data was retrieved successfully.";
+
+                var failedMessage =
+                    "DEV NETWORKS FLAIRS [ERROR]: The githb user repos data was not found.";
+
+                xhr.addEventListener("load", function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            // Getting repos from github for the username
+                            var repos = JSON.parse(xhr.responseText);
+
+                            var reposData = {
+                                repos: repos.length,
+                                forks: 0,
+                                sources: 0
+                            };
+
+                            if (repos.length > 0) {
+                                repos.forEach(function(itemRepo) {
+                                    reposData.forks += itemRepo.fork ? 1 : 0;
+                                });
+                            }
+                            reposData.sources =
+                                reposData.repos - reposData.forks;
+
+                            getUserProfileGHRepos(userid, reposData);
+                            // execute callback when success
+                            callback({ status: 1, message: successMessage });
+                        } else {
+                            // execute callback when failed
+                            callback({ status: 0, message: failedMessage });
+                        }
+                    }
+                });
+
+                xhr.addEventListener("error", function() {
+                    // a listener which executes when the xhr request fails
+                    // execute callback when failed
+                    callback({ status: 0, message: failedMessage });
+                });
+                xhr.open("GET", url, true);
+                xhr.send();
+            } else {
+                // if not github then execute callback success
+                callback({ status: 1, message: successMessage });
+            }
+        }
+
+        function getUserProfile(network, userData) {
             if (network === "github") {
                 getProfileGithub(userData);
             } else if (network === "stackoverflow") {
@@ -101,49 +200,73 @@ function domFlairReady(themes, c) {
         }
 
         function getProfileGithub(userData) {
-            profile.username = userData.login;
-            profile.fullname = userData.name;
-            profile.avatar = userData.avatar_url;
-            profile.url = userData.html_url;
-            profile.company = userData.company;
-            profile.location = userData.location;
-            profile.website = userData.blog;
-            profile.repos = truncateNum(userData.public_repos);
-            profile.gists = truncateNum(userData.public_gists);
-            profile.followers = truncateNum(userData.followers);
-            profile.hireable = truncateNum(userData.hireable);
-            profile.bio = truncateNum(userData.bio);
+            profile[userData.login] = {};
+
+            profile[userData.login].username = userData.login;
+            profile[userData.login].fullname = userData.name;
+            profile[userData.login].avatar = userData.avatar_url;
+            profile[userData.login].url = userData.html_url;
+            profile[userData.login].company = userData.company;
+            profile[userData.login].location = userData.location;
+            profile[userData.login].website = userData.blog;
+            profile[userData.login].repos = truncateNum(userData.public_repos);
+            profile[userData.login].gists = truncateNum(userData.public_gists);
+            profile[userData.login].followers = truncateNum(userData.followers);
+            profile[userData.login].hireable = userData.hireable ? "YES" : "NO";
+            profile[userData.login].bio = userData.bio;
+        }
+
+        function getUserProfileGHRepos(username, reposData) {
+            profile[username].forks = truncateNum(reposData.forks);
+            profile[username].sources = truncateNum(reposData.sources);
         }
 
         function getProfileStackof(userData) {
-            profile.userid = userData.user_id;
-            profile.fullname = userData.display_name;
-            profile.avatar = userData.profile_image;
-            profile.url = userData.link;
-            profile.location = userData.location;
-            profile.website = userData.website_url;
-            profile.reputation = truncateNum(userData.reputation);
-            profile.answers = truncateNum(userData.answer_count);
-            profile.questions = truncateNum(userData.question_count);
-            profile["badge-bronze"] = truncateNum(userData.badge_counts.bronze);
-            profile["badge-silver"] = truncateNum(userData.badge_counts.silver);
-            profile["badge-gold"] = truncateNum(userData.badge_counts.gold);
+            profile[userData.user_id] = {};
+
+            profile[userData.user_id].userid = userData.user_id;
+            profile[userData.user_id].fullname = userData.display_name;
+            profile[userData.user_id].avatar = userData.profile_image;
+            profile[userData.user_id].url = userData.link;
+            profile[userData.user_id].location = userData.location;
+            profile[userData.user_id].website = userData.website_url;
+            profile[userData.user_id].reputation = truncateNum(
+                userData.reputation
+            );
+            profile[userData.user_id].answers = truncateNum(
+                userData.answer_count
+            );
+            profile[userData.user_id].questions = truncateNum(
+                userData.question_count
+            );
+            profile[userData.user_id]["badge-bronze"] = truncateNum(
+                userData.badge_counts.bronze
+            );
+            profile[userData.user_id]["badge-silver"] = truncateNum(
+                userData.badge_counts.silver
+            );
+            profile[userData.user_id]["badge-gold"] = truncateNum(
+                userData.badge_counts.gold
+            );
         }
 
         function setProperties(flairItem) {
-            for (var property in profile) {
-                if (profile.hasOwnProperty(property)) {
+            var userid = flairItem.getAttribute("data-user");
+
+            for (var property in profile[userid]) {
+                // c(property + ": " + profile[userid][property]);
+                if (profile[userid].hasOwnProperty(property)) {
                     flairItem
                         .querySelectorAll('[data-property="' + property + '"]')
                         .forEach(function(itemProperty) {
                             if (itemProperty.textContent == "") {
                                 var el = document.createElement("quote");
-                                el.innerHTML = profile[property];
+                                el.innerHTML = profile[userid][property];
                                 itemProperty.textContent = el.textContent;
                             }
                         });
 
-                    setLink(flairItem, property, profile[property]);
+                    setLink(flairItem, property, profile[userid][property]);
                 }
             }
         }
@@ -155,6 +278,7 @@ function domFlairReady(themes, c) {
         }
 
         function setLink(flairItem, property, value) {
+            var userid = flairItem.getAttribute("data-user");
             flairItem
                 .querySelectorAll('[data-property="' + property + '"]')
                 .forEach(function(itemProperty) {
@@ -169,8 +293,8 @@ function domFlairReady(themes, c) {
                     } else if (link === "src") {
                         itemProperty.setAttribute("src", value);
                         itemProperty.textContent = "";
-                    } else if (profile[link] !== undefined) {
-                        itemProperty.setAttribute("href", profile[link]);
+                    } else if (profile[userid][link] !== undefined) {
+                        itemProperty.setAttribute("href", profile[userid][link]);
                     }
                 });
         }
