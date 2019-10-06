@@ -1,0 +1,134 @@
+.network-flair {
+    position: relative;
+    background-color: #202020;
+    box-shadow: -10px 10px 30px #202020;
+    border: 1px solid #202020;
+    border-radius: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 35px;
+} 
+
+.network-flair .data > svg {
+    color: #ffffff;
+    fill: #ffffff;
+}
+
+.network-flair a,
+.network-flair a:hover,
+.network-flair a:active,
+.network-flair a:visited {
+    color: #ffffff;
+}
+
+.network-flair a,
+.network-flair a:active,
+.network-flair a:visited {
+    text-decoration: underline;
+}
+
+.network-flair a:hover {
+    text-decoration: none;
+}
+
+.network-flair .title-container .title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.network-flair .title-container .subtitle {
+    font-weight: lighter;
+    font-size: 10px;
+    padding: 0 0 0 2px;
+    margin: 5px 0 0 0;
+}
+
+.network-flair .field-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.network-flair .fields,
+.network-flair .image {
+    float: left;
+}
+
+.network-flair .image {
+    border: 1px solid rgba(255,255,255, 0.25);
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.network-flair .image img {
+    background-color: rgba(255,255,255, 0.25);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.network-flair .field-container .data {
+    margin: 0;
+    font-size: 12px;
+    padding: 0 0 0 2px;
+}
+
+
+.network-flair .corner {
+    border: 0;
+    border-radius: 8px;
+}
+
+.network-flair .corner > svg {
+    border-radius: 2px;
+    color: #000000;
+    fill: #ffffff;
+}
+
+.network-flair.stackoverflow .corner .st-box,
+.network-flair.stackoverflow .corner .st-bars {
+    fill: #000000;
+}
+
+.network-flair.github .corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.network-flair.stackoverflow .corner,
+.network-flair.stackoverflow .corner svg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.badge-bronze, .badge-silver, .badge-gold {
+  padding-left: 10px;
+  margin-right: 5px;
+  position: relative;
+}
+.badge-bronze::before, .badge-silver::before, .badge-gold::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.badge-bronze::before {
+  background-color: #d1a684;
+}
+
+.badge-silver::before {
+  background-color: #b4b8bc;
+}
+
+.badge-gold::before {
+  background-color: #ffcc01;
+}
