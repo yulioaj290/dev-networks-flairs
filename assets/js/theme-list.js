@@ -18,7 +18,7 @@
                         <div class="row mt-3">
                             <div class="col">
                                 <a href="theme-list/${theme.name}/index.html">
-                                    <img class="embed-responsive" src="theme-list/material/image.png" alt="${theme.name} theme">
+                                    <img class="embed-responsive" src="theme-list/${theme.name}/image.png" alt="${theme.name} theme">
                                 </a>
                             </div>
                         </div>
