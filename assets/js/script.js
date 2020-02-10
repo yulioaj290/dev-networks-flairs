@@ -1,6 +1,7 @@
 (function($) {
     $(document).ready(function() {
         checkScreenSize();
+        loadUsersFromUrl();
 
         var codeGithub = initCodeEditor("github");
         var codeStackof = initCodeEditor("stackof");
@@ -192,5 +193,46 @@
             .trim();
 
         codeMirror.getDoc().setValue(code);
+    }
+
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined || typeof sParameterName[1] === 'undefined'
+                    ? false
+                    : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+
+    function loadUsersFromUrl() {
+
+        let github = getUrlParameter('github');
+        let stackoverflow = getUrlParameter('stackoverflow')
+
+        if (!!github) {
+            $(".network-flair.github.flair").attr("data-user", github);
+            $(".network-flair.github.cards").attr("data-user", github);
+        }
+
+        if (!!stackoverflow) {
+            $(".network-flair.stackoverflow.flair").attr(
+                "data-user",
+                stackoverflow
+            );
+            $(".network-flair.stackoverflow.cards").attr(
+                "data-user",
+                stackoverflow
+            );
+        }
+
+        buildFlairs();
     }
 })(window.jQuery);
